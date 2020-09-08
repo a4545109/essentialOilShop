@@ -1,0 +1,37 @@
+.bg-cover{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.clearfix{
+    clear: both;
+}
+
+
+.setp{
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    &-item{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $primaryLight;
+        color: $primary;
+        width: 90px;
+        height: 80px;
+        border-radius: 5px;
+    }
+    &::before{
+        position: absolute;
+        top: 40px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        content: "";
+        background-color: $primary;
+    }
+}

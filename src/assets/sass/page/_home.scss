@@ -1,0 +1,53 @@
+.banner{
+    background-image: url('~@/../static/img/bannerIndex.jpg');
+    height: 380px;
+    position: relative;
+}
+.bannerDecoration{
+    position: absolute;
+    right: 10%;
+    top: 20%;
+}
+.limitedTimeOfferTital,
+.customerFeedbackTital{
+  font-size: 30px;
+}
+.cardImg{
+  height: 200px;
+  position: relative;
+}
+.wallFlower{
+  background-image: url('~@/../static/img/wallFlower.jpg');
+  height: 347px;
+}
+.wallSky{
+  background-image: url('~@/../static/img/wallSky.jpg');
+  height: 347px;
+}
+.wallFlowerTitle{
+  color: #ea68a2;
+  font-size: 28px;
+  display: inline-block;
+}
+.wallFlowerText{
+  font-size: 20px;
+  line-height: 36px;
+}
+.wallSkyTitle{
+  font-size: 28px;
+}
+.wallSkyText{
+  font-size: 20px;
+  line-height: 36px;
+}
+.customer{
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+}
+.customerName{
+  font-size: 18px;
+}
+.customerText{
+  line-height: 20px;
+}
