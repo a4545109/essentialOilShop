@@ -1,59 +1,19 @@
 <template>
   <div>
      <!-- banner -->
-    <div class="container">
+    <div class="container mb-5">
         <div class="banner bg-cover">
             <div class="bannerDecoration">
                 <img src="~@/../static/img/bannerDecoration.png" alt="">
             </div>
         </div>
     </div>
-    <!-- productsList -->
-    <div class="container mb-5">
-        <div class="limitedTimeOfferTital text-center p-5">
+    <!-- swiper -->
+    <div class="container">
+        <div class="limitedTimeOfferTital text-center mb-5">
             限時優惠
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card">
-                        <div class="cardImg bg-cover">
-                        </div>
-                        <div class="card-body priceList">
-                            <div class="row text-center">
-                                <div class="col-12">海鷗芳療機</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card">
-                        <div class="cardImg bg-cover">
-                        </div>
-                        <div class="card-body priceList">
-                            <div class="row text-center">
-                                <div class="col-12">杏桃核油-Apricot-Seed</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card-group">
-                    <div class="card">
-                        <div class="cardImg bg-cover">
-                        </div>
-                        <div class="card-body priceList">
-                            <div class="row text-center">
-                                <div class="col-12">超經濟套組</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="mb-5" is="swiper"></div>
     </div>
     <!-- wall -->
     <div class="container">
@@ -141,5 +101,20 @@
             </div>
         </div>
     </div>
+    <div is="gotop"></div>
   </div>
 </template>
+<script>
+import Gotop from '@/components/Gotop.vue'
+import Swiper from '@/components/Swiper.vue'
+export default {
+  components: {
+    Gotop,
+    Swiper
+  },
+  data () {
+    return {
+    }
+  }
+}
+</script>

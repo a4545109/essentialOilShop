@@ -14,6 +14,10 @@ export default {
   components: {
     Sidebar,
     Footer
+  },
+  data () {
+    return {
+    }
   }
 }
 </script>

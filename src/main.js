@@ -1,6 +1,8 @@
 import Vue from 'vue' // 來自於node_modules
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+// swiper
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 // loading
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
@@ -16,11 +18,11 @@ import App from './App.vue'
 import router from './router'
 
 window.$ = $
-
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.use(VueAxios, axios)
 Vue.component('loading', Loading)
+Vue.use(VueAwesomeSwiper /* { default options with global component } */)
 
 // 中文化驗證
 Vue.use(VueI18n)

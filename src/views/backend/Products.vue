@@ -19,7 +19,7 @@
             <tr v-for="item in products" :key="item.id">
                 <td>{{ item.category}}</td>
                 <td>{{ item.title }}</td>
-                <td><img :src="item.imageUrl" alt="" style="width: 40px; height: 40px; border-radius: 5px;">
+                <td><img :src="item.imageUrl" alt="" style="width: 40px; height: 40px; border-radius: 5px;"></td>
                 <td>{{ item.origin_price }}</td>
                 <td>{{ item.price }}</td>
                 <td>

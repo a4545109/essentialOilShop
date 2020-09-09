@@ -5,12 +5,17 @@
 }
 
 @mixin pad {
-    @media screen and (max-width:767px) {
+    @media screen and (max-width:768px) {
         @content
     }
 }
 @mixin mobile576 {
     @media screen and (max-width:576px) {
+        @content
+    }
+}
+@mixin mobile376 {
+    @media screen and (max-width:376px) {
         @content
     }
 }

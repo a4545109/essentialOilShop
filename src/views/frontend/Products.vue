@@ -11,22 +11,30 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-3">
-             <div class="p-list list-group sticky-top mb-5" id="myList" role="tablist">
+            <div class="p-list list-group sticky-top mb-5" id="myList" role="tablist">
                   <p class="list-group-item list-group-item-action active text-center bg-primary text-white rounded-0"
                       data-toggle="list" href="#">商場類別</p>
-                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"><i
-                          class="p-icon fab fa-product-hunt mr-1"></i>全部產品</a>
-                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"><i
-                          class="p-icon fas fa-fan mr-1"></i>香氛精油</a>
-                  <a class="list-group-item list-group-item-action" data-toggle="list" href="#" role="tab"><i
-                          class="p-icon text-center fas fa-tint mr-1"></i>芳療機</a>
-                  <a class="list-group-item list-group-item-action rounded-0" data-toggle="list" href="#"
-                      role="tab"><i class="p-icon fas fa-ellipsis-h mr-1"></i>其他</a>
+                  <a class="list-group-item list-group-item-action"
+                    data-toggle="list" href="#" role="tab"
+                    @click.prevent="selectCategory('all')">
+                    <i class="p-icon fab fa-product-hunt mr-1"></i>全部產品</a>
+                  <a class="list-group-item list-group-item-action"
+                    data-toggle="list" href="#" role="tab"
+                    @click.prevent="selectCategory('essential')">
+                    <i class="p-icon fas fa-fan mr-1"></i>香氛精油</a>
+                  <a class="list-group-item list-group-item-action"
+                    data-toggle="list" href="#" role="tab"
+                    @click.prevent="selectCategory('machine')">
+                    <i class="p-icon text-center fas fa-tint mr-1"></i>芳療機</a>
+                  <a class="list-group-item list-group-item-action rounded-0"
+                    data-toggle="list" href="#" role="tab"
+                    @click.prevent="selectCategory('other')">
+                    <i class="p-icon fas fa-ellipsis-h mr-1"></i>其他</a>
               </div>
           </div>
           <div class="col-md-9 mb-4">
               <div class="row">
-                <div class="col-md-6 mb-3" v-for="item in products" :key="item.id">
+                <div class="col-md-6 mb-3" v-for="item in filterProducts" :key="item.id">
                     <div class="card">
                         <div class="p-card-img bg-cover"
                             :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
@@ -74,45 +82,6 @@
           </div>
         </div>
       </div>
-      <!-- 產品細節 -->
-      <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content border-0">
-                  <div class="modal-header">
-                      <h5 id="exampleModalLabel" class="modal-title">
-                          <h2>{{ tempProduct.title }}</h2>
-                      </h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                      <p>{{ tempProduct.content }}</p>
-                      <del class="h6">原價{{ tempProduct.origin_price }}</del>
-                      <div class="form-group mt-3">
-                          <select class="form-control" id="payment" v-model="tempProduct.num">
-                              <option value="0" disabled>請選擇數目</option>
-                              <option v-for="num in 10" :key="num" :value="num">
-                                  選購 {{ num }} {{ tempProduct.unit }}
-                              </option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="modal-footer">
-                      <div v-if="tempProduct.num" class="text-muted text-nowrap mr-3">
-                          小計
-                          <strong>{{ tempProduct.num * tempProduct.price }}</strong>元
-                      </div>
-                      <button type="button" class="btn btn-primary"
-                            @click="addToCart(tempProduct.id, tempProduct.num)">
-                          <i v-if="tempProduct.id === status.loadingItem" class="fas fa-spinner fa-spin"></i>
-                          加到購物車
-                      </button>
-                  </div>
-              </div>
-          </div>
-      </div>
       <!-- 購物車 -->
       <!-- <table>
         <tr v-for="item in products" :key="item.id">
@@ -129,12 +98,13 @@
 </template>
 
 <script>
-/* global $ */
 export default {
   data () {
     return {
-      products: [],
+      products: {},
       tempProduct: {},
+      filterProducts: [],
+      category: 'all',
       isLoading: false,
       status: {
         loadingItem: ''
@@ -150,6 +120,7 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.products = res.data.data
+          this.filterProducts = res.data.data
           this.isLoading = false
         })
         .catch(error => {
@@ -182,7 +153,6 @@ export default {
       console.log(cart)
       this.$http.post(url, cart)
         .then(res => {
-          $('#productModal').modal('hide')
           this.$bus.$emit('message:push', '成功加入購物車', 'success')
           this.status.loadingItem = ''
         })
@@ -191,6 +161,42 @@ export default {
           this.$bus.$emit('message:push', '已加入購物車', 'danger')
           this.status.loadingItem = ''
         })
+    },
+    selectCategory (status) {
+      const vm = this
+      switch (status) {
+        case 'all':
+          vm.category = '全部產品'
+          vm.filterProducts = vm.products
+          break
+        case 'essential':
+          vm.filterProducts = []
+          vm.category = '香氛精油'
+          vm.products.forEach((item) => {
+            if (item.category === vm.category) {
+              vm.filterProducts.push(item)
+            }
+          })
+          break
+        case 'machine':
+          vm.filterProducts = []
+          vm.category = '芳療機'
+          vm.products.forEach((item) => {
+            if (item.category === vm.category) {
+              vm.filterProducts.push(item)
+            }
+          })
+          break
+        case 'other':
+          vm.filterProducts = []
+          vm.category = '其他'
+          vm.products.forEach((item) => {
+            if (item.category === vm.category) {
+              vm.filterProducts.push(item)
+            }
+          })
+          break
+      }
     }
   },
   created () {
