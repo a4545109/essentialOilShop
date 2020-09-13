@@ -20,8 +20,8 @@
                 <td>{{ item.category}}</td>
                 <td>{{ item.title }}</td>
                 <td><img :src="item.imageUrl" alt="" style="width: 40px; height: 40px; border-radius: 5px;"></td>
-                <td>{{ item.origin_price }}</td>
-                <td>{{ item.price }}</td>
+                <td>{{ item.origin_price | thousands}}</td>
+                <td>{{ item.price | thousands}}</td>
                 <td>
                   <span v-if="item.enabled">啟用</span>
                   <span v-else>未啟用</span>
@@ -98,19 +98,18 @@
                       </div>
                     </div>
                     <hr>
-
-                    <div class="form-group">
-                      <label for="description">產品描述</label>
-                      <textarea id="description" v-model="tempProduct.description" type="text" class="form-control"
-                        placeholder="請輸入產品描述" >
-                      </textarea>
-                    </div>
-                    <div class="form-group">
-                      <label for="content">說明內容</label>
-                      <textarea id="description" v-model="tempProduct.content" type="text" class="form-control"
-                        placeholder="請輸入說明內容" >
-                      </textarea>
-                    </div>
+                      <div class="form-group">
+                        <label for="description">產品說明</label>
+                        <textarea id="description" v-model="tempProduct.description" type="text" class="form-control"
+                          placeholder="請輸入產品說明" >
+                        </textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="content">產品內容</label>
+                        <textarea id="content" v-model="tempProduct.content" type="text" class="form-control"
+                          placeholder="請輸入產品描述" >
+                        </textarea>
+                      </div>
                     <div class="form-group">
                       <div class="form-check">
                         <input id="is_enabled" v-model="tempProduct.enabled" class="form-check-input" type="checkbox">
@@ -197,6 +196,16 @@ export default {
         this.pagination = response.data.meta.pagination
       })
     },
+    // 取的單一產品資料
+    getProduct (id) {
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/admin/ec/product/${id}`
+      this.$http.get(api).then((res) => {
+        $('#productModal').modal('show')
+        this.tempProduct = res.data.data
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
     updateProduct () {
       // 新增商品
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/admin/ec/product`
@@ -221,6 +230,7 @@ export default {
           break
         case 'edit':
           this.tempProduct = Object.assign({}, item)
+          this.getProduct(this.tempProduct.id)
           $('#productModal').modal('show')
           this.isNew = false
           break

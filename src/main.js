@@ -16,6 +16,7 @@ import 'bootstrap'
 import $ from 'jquery'
 import App from './App.vue'
 import router from './router'
+import thousands from './js/money'
 
 window.$ = $
 Vue.config.productionTip = false
@@ -23,6 +24,7 @@ Vue.prototype.$http = axios
 Vue.use(VueAxios, axios)
 Vue.component('loading', Loading)
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)
+Vue.filter('thousands', thousands)
 
 // 中文化驗證
 Vue.use(VueI18n)

@@ -17,9 +17,11 @@
     </div>
     <!-- wall -->
     <div class="container">
-        <div class="row no-gutters">
+        <div class="row wallF no-gutters" :class="{ 'wallFlower': wallFlower }">
             <div class="col-md-6">
-                <div class="wallFlower bg-cover">
+                <div class="wallFlowerImg bg-cover">
+                    <div class="wallLinesUp"></div>
+                    <div class="wallLinesDown"></div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -36,9 +38,12 @@
                 </div>
             </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row wallS no-gutters" :class="{ 'wallSky': wallSky }">
             <div class="col-md-6 d-md-none d-block">
-                <div class="wallSky bg-cover"></div>
+                <div class="wallSkyImg bg-cover">
+                    <div class="wallLinesUp"></div>
+                    <div class="wallLinesDown"></div>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="wallSkyContent p-5">
@@ -51,7 +56,10 @@
                 </div>
             </div>
             <div class="col-md-6 d-md-block d-none">
-                <div class="wallSky bg-cover"></div>
+                <div class="wallSkyImg bg-cover">
+                    <div class="wallLinesUp"></div>
+                    <div class="wallLinesDown"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -105,6 +113,7 @@
   </div>
 </template>
 <script>
+/* global $ */
 import Gotop from '@/components/Gotop.vue'
 import Swiper from '@/components/Swiper.vue'
 export default {
@@ -114,6 +123,19 @@ export default {
   },
   data () {
     return {
+      wallFlower: false,
+      wallSky: false
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.bounceInLeft)
+  },
+  methods: {
+    bounceInLeft () {
+      if (window.pageYOffset > 350) {
+        $('.wallF').addClass('wallFlower')
+        $('.wallS').addClass('wallSky')
+      }
     }
   }
 }

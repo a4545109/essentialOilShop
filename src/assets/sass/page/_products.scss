@@ -1,18 +1,26 @@
 .p-banner-img{
-    background-image: url('~@/../static/img/bannerProducts.jpg');
-    height: 380px;
+  background-image: url('~@/../static/img/bannerProducts.jpg');
+  height: 380px;
 }
 .category{
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .productsContent{
-    position: relative;
+  position: relative;
 }
 .p-icon{
-    width: 16px;
+  width: 16px;
 }
 .p-card-img{
-    min-height: 210px;
+  min-height: 210px;
+}
+.p-text{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //行數
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }

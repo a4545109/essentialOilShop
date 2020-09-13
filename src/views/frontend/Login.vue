@@ -69,6 +69,7 @@ export default {
     },
     signout () {
       document.cookie = 'token=;expires=;'
+      this.$bus.$emit('message:push', '登出成功', 'success')
     }
   }
 }

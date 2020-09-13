@@ -40,19 +40,23 @@
                             :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
                         <!-- <img :src="item.imageUrl" class="card-img-top" alt="..."> -->
                         <div class="card-body productsContent">
-                            <h5 class="card-title">{{ item.title }}</h5>
+                            <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
                             <span href="#" class="category badge badge-secondary">{{ item.category}}</span>
-                            <p class="card-text mb-3">{{ item.content }}</p>
+                            <p class="p-text mb-3">{{ item.content }}</p>
                             <!-- <p class="card-text" v-html="item.description"></p> -->
                             <div class="h5" v-if="!item.price || item.price === item.origin_price">
                                 <!-- 售價(price)欄位是可選的,因此售價若為空,就顯示原價(origin_price)
                                     售價若不為空,就顯示原價(origin_price)與售價(price) -->
                                 原價{{item.origin_price}}元
                             </div>
-                            <div v-else>
-                                <del class="h6">原價{{item.origin_price}}元</del>
-                                <div class="h5 price">現在只要{{ item.price }}</div>
+                            <div class="row">
+                              <div class="col-6 h5 text-secondary">原價<p>NT{{ item.origin_price | thousands}}</p></div>
+                              <div class="col-6 h5 text-danger">優惠價<p>NT{{ item.price | thousands }}</p></div>
                             </div>
+                            <!-- <div v-else>
+                                <del class="h6">原價{{item.origin_price | thousands}}</del>
+                                <div class="h5 price">現在只要{{ item.price | thousands }}</div>
+                            </div> -->
                         </div>
                         <div class="cardFooter">
                             <div class="row no-gutters">
@@ -82,18 +86,6 @@
           </div>
         </div>
       </div>
-      <!-- 購物車 -->
-      <!-- <table>
-        <tr v-for="item in products" :key="item.id">
-          <td>{{ item.title }}</td>
-          <td>{{ item.origin_price }}</td>
-          <td>
-            <router-link :to="`/product/${item.id}`">連結</router-link>
-            <button @click="goProduct(item)">進入單一產品頁面</button>
-            <a href="#" @click.prevent="goProduct(item)">進入頁面</a>
-          </td>
-        </tr>
-      </table> -->
     </div>
 </template>
 
@@ -153,6 +145,7 @@ export default {
       console.log(cart)
       this.$http.post(url, cart)
         .then(res => {
+          this.$bus.$emit('updateQuantity')
           this.$bus.$emit('message:push', '成功加入購物車', 'success')
           this.status.loadingItem = ''
         })

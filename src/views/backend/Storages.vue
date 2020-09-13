@@ -21,12 +21,39 @@
               </td>
               <td>
                   <div class="btn-group btn-group-sm">
-                  <button class="btn btn-outline-danger" @click="deleteData(item.id)">刪除</button>
+                  <button class="btn btn-outline-danger"  @click.prevent="openDeleteModal(item)">刪除</button>
                   </div>
               </td>
               </tr>
           </tbody>
         </table>
+        <!-- 刪除Modal -->
+        <div id="delProductModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content border-0">
+              <div class="modal-header bg-danger text-white">
+                <h5 id="exampleModalLabel" class="modal-title">
+                  <span>刪除圖片</span>
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                是否刪除圖片(刪除後將無法恢復)。
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+                  取消
+                </button>
+                <button type="button" class="btn btn-danger" @click="deleteData(tempData.id)">
+                  確認刪除
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
         <!-- 分頁 -->
         <Pagination :pages="pagination" @emitPages="getData"></Pagination>
     </div>
@@ -61,12 +88,17 @@ export default {
         this.isLoading = false
       })
     },
+    openDeleteModal (item) {
+      this.tempData = Object.assign({}, item)
+      $('#delProductModal').modal('show')
+    },
     deleteData (id) {
       this.isLoading = true
       this.tempData.id = id
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/admin/storage/${this.tempData.id}`
       this.$http.delete(url).then(() => {
         this.isLoading = false
+        $('#delProductModal').modal('hide')
         this.getData()
       })
     }

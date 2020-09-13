@@ -1,7 +1,8 @@
 <template>
   <div :class="{ 'goTopShow': goTopShow }" @click="goTop()" title="Back to Top">
+    <img src="~@/../static/img/Top.png" class="shake-little" alt="">
   </div>
-</template>
+</template>rocket
 
 <script>
 export default {
@@ -15,7 +16,7 @@ export default {
   },
   methods: {
     showGotop () {
-      if (window.pageYOffset > 400) {
+      if (window.pageYOffset > 50) {
         this.goTopShow = true
       } else {
         this.goTopShow = false
@@ -36,15 +37,12 @@ export default {
   position: fixed;
   bottom: 2%;
   right: 2%;
-  width: 50px;
-  height: 50px;
-  background-color: rgb(8, 6, 97);
-  border-radius: 50%;
   opacity: 0.8;
   cursor: pointer;
   transition: all .5s;
+  z-index: 1;
 }
-.goTop:hover {
+.goTopShow:hover {
   opacity: 1; /* 透明度 */
 }
 </style>

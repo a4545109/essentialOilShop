@@ -80,7 +80,7 @@
                             <textarea name="message" id="message" cols="30" rows="3" v-model="user.message"
                                 class="form-control"></textarea>
                         </div>
-                        <div class="text-right mb-3">
+                        <div class="text-right mb-5">
                             <button type="submit" class="btn btn-primary">送出表單</button>
                         </div>
                     </form>

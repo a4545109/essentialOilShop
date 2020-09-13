@@ -89,14 +89,10 @@ export default {
   methods: {
     getOrders (pages = 1) {
       this.isLoading = true
-      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/admin/ec/orders?page=${pages}`
+      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/admin/ec/orders?page=${pages}&paged=10`
       this.$http.get(url).then(res => {
         this.orders = res.data.data
-        const resPagination = res.data.meta.pagination
-        resPagination.per_page = 5
-        resPagination.total_pages = resPagination.total / resPagination.per_page
-        this.pagination = resPagination
-        console.log(this.pagination)
+        this.pagination = res.data.meta.pagination
         this.isLoading = false
       })
     },

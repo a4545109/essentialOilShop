@@ -1,29 +1,30 @@
 .banner{
-    background-image: url('~@/../static/img/bannerIndex.jpg');
-    height: 380px;
-    position: relative;
+  background-image: url('~@/../static/img/bannerIndex.jpg');
+  height: 380px;
+  position: relative;
 }
 .bannerDecoration{
-    position: absolute;
-    right: 10%;
-    top: 20%;
+  position: absolute;
+  right: 5%;
+  top: 20%;
 }
 .limitedTimeOfferTital,
-.customerFeedbackTital,
-.productDetailsTital{
+.customerFeedbackTital{
   font-size: 30px;
 }
 .cardImg{
   height: 200px;
   position: relative;
 }
-.wallFlower{
+.wallFlowerImg{
   background-image: url('~@/../static/img/wallFlower.jpg');
   height: 347px;
+  position: relative;
 }
-.wallSky{
+.wallSkyImg{
   background-image: url('~@/../static/img/wallSky.jpg');
   height: 347px;
+  position: relative;
 }
 .wallFlowerTitle{
   color: #ea68a2;
@@ -52,4 +53,66 @@
 .customerText{
   line-height: 20px;
 }
+.wallLinesUp{
+  border:1px solid rgba(255, 255, 255, 0.616);
+  width: 94%;
+  height: 94%;
+  position: absolute;
+  left: 3%;
+  top: 3%;
+}
+.wallLinesDown{
+  border:1px solid rgba(255, 255, 255, 0.616);
+  width: 96%;
+  height: 92%;
+  position: absolute;
+  left: 2%;
+  top: 4%;
+}
 
+
+//動畫
+.wallFlower{
+  animation: bounceInLeft 3s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+}
+.wallSky{
+  animation: bounceInRight 3s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+}
+@keyframes bounceInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-1000px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+  100% {
+    transform: none;
+  }
+}
+@keyframes bounceInRight {
+  0% {
+    opacity: 0;
+    transform: translate3d(1000px, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translate3d(-25px, 0, 0);
+  }
+  75% {
+    transform: translate3d(10px, 0, 0);
+  }
+  90% {
+    transform: translate3d(-5px, 0, 0);
+  }
+  100% {
+    transform: none;
+  }
+}

@@ -4,6 +4,9 @@
 }
 .sidebarLogo{
     font-size: 30px;
+    @include pad(){
+        font-size: 22px;
+    }
 }
 .sidebar li{
     margin-left: 40px;

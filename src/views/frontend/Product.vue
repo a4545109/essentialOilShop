@@ -3,27 +3,27 @@
       <!-- 產品細節 -->
       <div class="container mt-5">
         <div class="row mb-5">
-          <div class="col-6">
-            <img :src="product.imageUrl" alt="" style="width: 100%;">
-            <!-- <div class="p-card-img bg-cover"
-                :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div> -->
+          <div class="col-md-6">
+            <div class="productImg bg-cover"
+                :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6">
             <h2 class="h2 font-weight-bold">{{ product.title }}</h2>
             <div class="row mb-4">
-              <div class="col-6 h5 text-secondary">原價NT{{ product.origin_price }}</div>
-              <div class="col-6 h5 text-danger">優惠價NT{{ product.origin_price }}</div>
+              <div class="col-6 h5 text-secondary">原價NT{{ product.origin_price | thousands}}</div>
+              <div class="col-6 h5 text-danger">優惠價NT{{ product.price | thousands }}</div>
             </div>
             <div class="row">
-              <div class="col-md-8">
-                <p>{{ product.description }}</p>
+              <div class="col-12">
+                <pre style="line-height:20px;">{{ product.content }}</pre>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
                 <div class="payment">
-                  <div class="form-group mt-3">
-                      <select class="form-control" id="payment" v-model="product.num">
+                  <div class="form-group mt-5">
+                      <label class="h5 font-weight-bold" for="number">數量</label>
+                      <select class="form-control" id="number" v-model="product.num">
                           <option value="0" disabled>請選擇數目</option>
                           <option v-for="num in 10" :key="num" :value="num">
                               選購 {{ num }} {{ product.unit }}
@@ -45,10 +45,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="productDetailsTital mb-5">
+          <div class="productDetailsTital mb-3">
             產品詳情
-            <p>{{ product.content }}</p>
-            <p>{{ product.description }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="productDetailsContent mb-5">
+            <pre>{{ product.description }}</pre>
           </div>
         </div>
       </div>
@@ -79,6 +82,7 @@ export default {
       console.log(cart)
       this.$http.post(url, cart)
         .then(res => {
+          this.$bus.$emit('updateQuantity')
           this.$bus.$emit('message:push', '成功加入購物車', 'success')
           this.status.loadingItem = ''
         })
@@ -101,3 +105,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+.productDetailsTital{
+  font-size: 30px;
+}
+.productDetailsContent{
+  line-height: 30px;
+}
+.productImg{
+  height: 355px;
+}
+</style>

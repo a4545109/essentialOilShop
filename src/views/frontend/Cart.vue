@@ -29,7 +29,8 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="emptyCar" v-if="cartTotal === 0"></div>
+      <div class="container" v-else>
           <div class="row d-flex justify-content-center">
               <div class="col-md-10">
                   <div class="text-right m-3">
@@ -78,26 +79,9 @@
                                   </div>
                               </td>
                               <td class="align-middle">{{ item.product.unit }}</td>
-                              <td class="align-middle">{{ item.product.price }}</td>
+                              <td class="align-middle">{{ item.product.price | thousands }}</td>
                           </tr>
                       </tbody>
-                      <tfoot>
-                          <tr>
-                              <td class="text-right" colspan="4">總計</td>
-                              <td class="text-right">{{ cartTotal }}</td>
-                          </tr>
-                          <tr v-if="coupon.enabled">
-                            <td
-                              colspan="4"
-                              class="text-right text-success"
-                            >
-                              折扣價
-                            </td>
-                            <td class="text-right text-success">
-                              {{ cartTotal * (coupon.percent / 100) }}
-                            </td>
-                          </tr>
-                      </tfoot>
                   </table>
                   <!-- 套用優惠碼 -->
                   <div class="row d-flex flex-row-reverse">
@@ -122,28 +106,29 @@
                     </div>
                   </div>
                   <!-- 消費總額計算 -->
-                  <div class="row d-flex flex-row-reverse">
-                    <div class="col-1">
-                        <h5>{{ cartTotal }}</h5>
-                        <h5>{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 }}</h5>
-                    </div>
-                    <div class="col-md-2 col-5">
-                        <h5>消費總計</h5>
-                        <h5>優惠折扣</h5>
+                  <div class="row d-flex flex-row-reverse mt-5">
+                    <div class="col-md-3">
+                      <div class="totalCost">
+                        <p class="d-inline mr-3">消費總計</p><span>NT{{ cartTotal | thousands}}</span>
+                      </div>
+                      <div class="totalDiscount mt-3 mb-3">
+                        <p class="d-inline text-success mr-3">優惠折扣</p>
+                        <span class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands}}</span>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12">
-                      <div class="totalAmount" style="background-color: #e5e1e1;">
-                        <p class="text-right">訂單內有 {{ cartTotal }} 件商品，
+                      <div class="totalAmount p-2" style="background-color: #e5e1e1;">
+                        <p class="text-right">訂單內有 {{ quantity }} 件商品，
                           <span>本筆訂單總金額 NT$
-                            <span class="text-danger">{{ cartTotal * (coupon.percent / 100) }}</span>
+                            <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal }}</span>
                           </span>
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mt-3 mb-5">
                     <div class="col-12">
                       <div class="row">
                         <div class="col-6">
@@ -172,6 +157,7 @@ export default {
     return {
       carts: [],
       cartTotal: 0,
+      quantity: 0,
       isLoading: false,
       coupon: {},
       coupon_code: '',
@@ -188,6 +174,7 @@ export default {
       this.$http.get(url)
         .then(res => {
           this.carts = res.data.data
+          this.quantity = res.data.data.length
           console.log(this.carts)
           this.isLoading = false
           this.updateTotal()
@@ -226,6 +213,7 @@ export default {
         .then(res => {
           this.getCarts()
           this.cartTotal = 0
+          this.$bus.$emit('updateQuantity')
         })
     },
     // 刪除單一產品
@@ -234,6 +222,7 @@ export default {
       this.$http.delete(url)
         .then(res => {
           this.getCarts()
+          this.$bus.$emit('updateQuantity')
         })
     },
     // ${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}
@@ -263,3 +252,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+  .delete{
+    cursor:pointer;
+  }
+</style>

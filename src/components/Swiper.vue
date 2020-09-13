@@ -2,18 +2,17 @@
   <div>
     <div is="swiper" ref="mySwiper" class="sale_content swiper-container" :options="swiperOption">
       <div class="swiper-slide" is="swiper-slide" v-for="product in products" :key="'product' + product.id">
-        <router-link :to="`/product/${products.id}`" target="_blank">
-          <div>
-            <img class="productsPic" :src="`${product.img[0]}`" alt="">
-          </div>
-          <div class="product-name">
-            <h5>{{ product.title }}</h5>
-            <p>NT${{ product.price }}</p>
-            <div class="orign">NT${{ product.origin_price }}</div>
-          </div>
-        </router-link>
+        <div class="productsPic d-flex justify-content-center align-items-center bg-cover" :style="{ backgroundImage:`url(${product.img[0]})` }">
+          <router-link class="routerLink" :to="`/product/${product.id}`" target="_blank">
+            <div class="SeeMore">
+              <button class="SeeMoreText">ReadMore</button>
+            </div>
+          </router-link>
+        </div>
+        <div class="productsName mt-3">
+          <div class="h4 text-center">{{ product.title }}</div>
+        </div>
       </div>
-      <div class="swiper-pagination" slot="pagination"></div>
     </div>
   </div>
 </template>
@@ -30,18 +29,14 @@ export default {
     return {
       swiperOption: {
         direction: 'horizontal',
-        speed: 2000,
+        speed: 3000,
         loop: true,
         autoplay: {
           delay: 2000,
           disableOnInteraction: false
         },
         slidesPerView: 1,
-        spaceBetween: 5,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
+        spaceBetween: 20,
         breakpoints: {
           // when window width is >= 768px
           768: {
@@ -51,40 +46,32 @@ export default {
       },
       products: [
         {
-          id: '0',
+          id: '9c67hFlhGcCUmXg6U1VLLNNihnIf9sQfMbjn9akZuN1JLc2GC1n89sLDwT4Sc8It',
           img: [
-            'https://i.imgur.com/azf0z1D.jpg'
+            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/iNw29r6x6bPtKrug9E1y5ODuQkmVl3y4H8CTMipi1TBPWu7S2hO2JtJNoNPUWWY62GfjoKMPrV7WzTKud3gHhsc4D73nfZEVB6hHfucEYsEa36PgLyX1iCLAKMiBUknj.jpg'
           ],
-          title: '海鷗芳療機',
-          price: 4999,
-          origin_price: 5999
+          title: '海鷗芳療機'
         },
         {
-          id: '1',
+          id: 'PVhLoP1eRiDxOtP8n8oG3yPpqURWyakFELyPvJvIhqoJOVYQj45va6EyghwNDIeX',
           img: [
-            'https://i.imgur.com/3gkQPk6.jpg'
+            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/fpWwrp1Pi9u0pJILJWKzCS4EorIlX2FqTcRe8zMBgZ0kF2eVIE6AwuQYA5Hz2rXoag1AA5eZoMLtLO5PY31uHgAO6ZPhCRpSkHQooerCE5LYD49pXlbS5Ul6AaP7Ikcn.jpg'
           ],
-          title: '杏桃核油-Apricot-Seed',
-          price: 799,
-          origin_price: 899
+          title: '杏桃核茴香精油'
         },
         {
-          id: '2',
+          id: 'yW4bAxN01H6AzECWM6jQ2KiNZlqRdGHqyvdFhuX38964qw5LlMjYyfwqW2ty6ncx',
           img: [
-            'https://i.imgur.com/U3ZSDql.jpg'
+            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/OtKQfFaWlGXN0qLta5sY2YX7VSNiaKnNv3A75kOxNrwDBaQwbOsL1LjbtuUJUiobgQIfy7hHBZoSnzyOvYrkSlXB6PCdWl6CH4cjv8flsb60oZrX5aQqtm1yrz40qpGA.jpg'
           ],
-          title: '超經濟套組',
-          price: 3690,
-          origin_price: 3980
+          title: '超經濟套組'
         },
         {
-          id: '3',
+          id: 'OQVtqP3flKBe1hIufUOJavhb8qv4LJ2tN8ZE4mGZJdRpFb4pKNrbhsMe9hGgK7kx',
           img: [
-            'https://i.imgur.com/azf0z1D.jpg'
+            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/tjeLZO3jRyX0VozBUKDuYRkMqaoPju4C23q9CGAmfIehWagQrQVdfdQ3SXVNV7He1Nf7yplNdQh2M8v4tgrRnhPWJtTdjyJ7qllMj3z1tTZXyKbuTtyqgYnqNqYUBUE8.jpg'
           ],
-          title: '海鷗芳療機3',
-          price: 4999,
-          origin_price: 5999
+          title: '小森芳療機'
         }
       ]
     }
@@ -99,8 +86,33 @@ export default {
   }
 }
 </script>
-<style scoped>
-  .productsPic{
-    width: 100%;
+<style lang="scss" scoped>
+.productsPic{
+  min-height: 218px;
+  .SeeMoreText{
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 5px 15px 5px 15px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color:  rgba(255, 255, 255, 0.3);
+    transition: background-color 1s;
+    &:hover{
+      background-color:rgba(255, 255, 255, 0.5);
+    }
   }
+  &:hover{
+    .SeeMore{
+      display: block;
+    }
+  }
+}
+.SeeMore{
+  display: none;
+}
+.routerLink {
+  text-decoration: none;
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="row no-gutters justify-content-center">
+  <div class="row no-gutters justify-content-center mt-5">
     <loading :active.sync="isLoading" />
     <div class="col-md-10">
       <table class="table">
@@ -35,7 +35,7 @@
               </ul>
             </td>
             <td class="text-right">
-              {{ item.amount }}
+              {{ item.amount | thousands }}
             </td>
             <td>
               <strong
@@ -69,7 +69,7 @@
     <hr class="w-100">
 
     <form
-      class="col-md-6"
+      class="col-md-6 mb-5"
       @submit.prevent="payOrder"
     >
       <table class="table">
@@ -90,7 +90,7 @@
               {{ item.quantity }}/{{ item.product.unit }}
             </td>
             <td class="align-middle text-right">
-              {{ item.product.price }}
+              {{ item.product.price | thousands }}
             </td>
           </tr>
         </tbody>
@@ -103,7 +103,7 @@
               總計
             </td>
             <td class="text-right">
-              {{ order.amount }}
+              {{ order.amount | thousands}}
             </td>
           </tr>
         </tfoot>
