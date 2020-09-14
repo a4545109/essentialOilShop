@@ -56,14 +56,14 @@
                     </a>
                   </router-link>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <router-link class="routerLink" to="/admin/products">
                     <a class="nav-link">
                       <i class="fas fa-user mr-1"></i>
                       <span>後台</span>
                     </a>
                   </router-link>
-                </li>
+                </li> -->
               </ul>
             </div>
           </div>

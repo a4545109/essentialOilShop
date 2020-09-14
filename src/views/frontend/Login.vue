@@ -14,15 +14,15 @@
                 <div class="col-10">
                   <form class="form-signin" @submit.prevent="signin">
                       <h1 class="h3 mb-3 font-weight-normal">
-                          請先登入
+                          <i class="fas fa-user-tie mr-2 mb-md-5"></i>管理者登入
                       </h1>
                       <div class="form-group">
-                          <label for="inputEmail" class="sr-only">Email address</label>
+                          <label class="mb-1" for="inputEmail">帳號:</label>
                           <input id="inputEmail" v-model="user.email" type="email" class="form-control"
                               placeholder="Email address" required autofocus>
                       </div>
                       <div class="form-group">
-                          <label for="inputPassword" class="sr-only">Password</label>
+                          <label class="mb-1" for="inputPassword">密碼:</label>
                           <input id="inputPassword" v-model="user.password" type="password" class="form-control"
                               placeholder="Password" required>
                       </div>

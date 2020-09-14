@@ -29,8 +29,7 @@
           </div>
         </div>
       </div>
-      <div class="emptyCar" v-if="cartTotal === 0"></div>
-      <div class="container" v-else>
+      <div class="container">
           <div class="row d-flex justify-content-center">
               <div class="col-md-10">
                   <div class="text-right m-3">
@@ -120,9 +119,9 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="totalAmount p-2" style="background-color: #e5e1e1;">
-                        <p class="text-right">訂單內有 {{ quantity }} 件商品，
-                          <span>本筆訂單總金額 NT$
-                            <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal }}</span>
+                        <p class="text-right">訂單內有 <span class="text-danger">{{ quantity }}</span> 件商品，
+                          <span>本筆訂單總金額
+                            <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal | thousands}}</span>
                           </span>
                         </p>
                       </div>
@@ -225,15 +224,11 @@ export default {
           this.$bus.$emit('updateQuantity')
         })
     },
-    // ${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}
+    // 套用優惠卷
     addCoupon () {
       this.isLoading = true
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/coupon/search`
-      // 輸入 coupon 之前必須先戳一下 api/{{ uuid }}/coupon/search API 確定該 coupon 是存在的
       this.$http.post(url, { code: this.coupon_code }).then(res => {
-        // 若 coupon 存在就回寫回去到 this.coupon
-        // 該資料會是一個物件格式，詳情可見 API 文件
-        // https://course-ec-api.hexschool.io/document#frontend-search-coupon-code-code
         this.coupon = res.data.data
         this.isLoading = false
       }).catch(error => {

@@ -48,14 +48,14 @@ export default {
         {
           id: '9c67hFlhGcCUmXg6U1VLLNNihnIf9sQfMbjn9akZuN1JLc2GC1n89sLDwT4Sc8It',
           img: [
-            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/iNw29r6x6bPtKrug9E1y5ODuQkmVl3y4H8CTMipi1TBPWu7S2hO2JtJNoNPUWWY62GfjoKMPrV7WzTKud3gHhsc4D73nfZEVB6hHfucEYsEa36PgLyX1iCLAKMiBUknj.jpg'
+            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/WF2MYHtHyK5PI4DUDokt6Sl8czYZSDNUIwQg8zNQFm7Z9wSFIn9MS5wv7u7mg3Qz3LR6HZK1FRKf53L3xhPklpTw496aqhprZ0m0deMw3cHLhfon5vGCgrCCkCK1WV8r.jpg'
           ],
           title: '海鷗芳療機'
         },
         {
           id: 'PVhLoP1eRiDxOtP8n8oG3yPpqURWyakFELyPvJvIhqoJOVYQj45va6EyghwNDIeX',
           img: [
-            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/fpWwrp1Pi9u0pJILJWKzCS4EorIlX2FqTcRe8zMBgZ0kF2eVIE6AwuQYA5Hz2rXoag1AA5eZoMLtLO5PY31uHgAO6ZPhCRpSkHQooerCE5LYD49pXlbS5Ul6AaP7Ikcn.jpg'
+            'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/UW6sv47LQ6K9vdcr43ZSq2jMaO2CAaLij6Pkrt2nXvG467P0BDBo6krVDgfMox8a23Q5Xh2ETJzdRUkwvRzxLCz7O8pQsvKDvzAHMJcgEevLO41yiVoqF6c3SmwNshzd.jpg'
           ],
           title: '杏桃核茴香精油'
         },

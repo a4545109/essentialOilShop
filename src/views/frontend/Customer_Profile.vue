@@ -118,7 +118,6 @@ export default {
           this.isLoading = false
           if (res.data.data.id) {
             this.$router.push('/cart_success')
-            // this.$router.push(`/cart_checkout/${res.data.data.id}`)
             this.$bus.$emit('message:push', '成功送出訂單', 'success')
           }
         })

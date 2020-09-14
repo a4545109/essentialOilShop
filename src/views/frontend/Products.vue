@@ -7,7 +7,7 @@
           <div class="p-banner-img bg-cover">
           </div>
       </div>
-      <!-- 產品列表 -->
+      <!-- 產品類別 -->
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-3">
@@ -38,18 +38,16 @@
                     <div class="card">
                         <div class="p-card-img bg-cover"
                             :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
-                        <!-- <img :src="item.imageUrl" class="card-img-top" alt="..."> -->
                         <div class="card-body productsContent">
                             <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
                             <span href="#" class="category badge badge-secondary">{{ item.category}}</span>
                             <p class="p-text mb-3">{{ item.content }}</p>
-                            <!-- <p class="card-text" v-html="item.description"></p> -->
                             <div class="h5" v-if="!item.price || item.price === item.origin_price">
                                 <!-- 售價(price)欄位是可選的,因此售價若為空,就顯示原價(origin_price)
                                     售價若不為空,就顯示原價(origin_price)與售價(price) -->
                                 原價{{item.origin_price}}元
                             </div>
-                            <div class="row">
+                            <div class="row" v-else>
                               <div class="col-6 h5 text-secondary">原價<p>NT{{ item.origin_price | thousands}}</p></div>
                               <div class="col-6 h5 text-danger">優惠價<p>NT{{ item.price | thousands }}</p></div>
                             </div>
@@ -61,7 +59,7 @@
                         <div class="cardFooter">
                             <div class="row no-gutters">
                                 <div class="col-6">
-                                  <button type="button" class="btn btn-outline-primary text-primary btn-block rounded-0"
+                                  <button type="button" class="btn btn-outline-primaryLight text-primary btn-block rounded-0"
                                       @click="getProduct(item.id)"
                                       :disabled="status.loadingItem === item.id">
                                       查看詳情
