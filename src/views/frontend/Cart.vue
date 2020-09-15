@@ -1,154 +1,154 @@
 <template>
-    <div>
-      <!-- loading 套件 -->
-      <loading :active.sync="isLoading"></loading>
-      <!-- step -->
-      <div class="container mt-5 mb-5">
-        <div class="row d-flex justify-content-center">
-          <div class="col-10">
-            <ul class="setp d-flex justify-content-between">
-                <li class="setp-item active bg-kiwiGreen text-white">
-                  <div class="stepContent">
-                    <p class="text-center mb-2">STEP1</p>
-                    <p>購物清單</p>
-                  </div>
-                </li>
-                <li class="setp-item">
-                  <div class="stepContent">
-                    <p class="text-center mb-2">STEP2</p>
-                    <p>填寫資料</p>
-                  </div>
-                </li>
-                <li class="setp-item">
-                  <div class="stepContent">
-                    <p class="text-center mb-2">STEP3</p>
-                    <p>成功結帳</p>
-                  </div>
-                </li>
-            </ul>
+  <div>
+  <!-- loading 套件 -->
+    <loading :active.sync="isLoading"></loading>
+    <!-- step -->
+    <div class="container mt-5 mb-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <ul class="setp d-flex justify-content-between">
+              <li class="setp-item active bg-kiwiGreen text-white">
+                <div class="stepContent">
+                  <p class="text-center mb-2">STEP1</p>
+                  <p>購物清單</p>
+                </div>
+              </li>
+              <li class="setp-item">
+                <div class="stepContent">
+                  <p class="text-center mb-2">STEP2</p>
+                  <p>填寫資料</p>
+                </div>
+              </li>
+              <li class="setp-item">
+                <div class="stepContent">
+                  <p class="text-center mb-2">STEP3</p>
+                  <p>成功結帳</p>
+                </div>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+          <div class="text-right m-3">
+            <button class="btn btn-outline-danger" @click="removeAllCarts">
+                刪除所有品項 <i class="far fa-trash-alt"></i>
+            </button>
+          </div>
+          <!-- 清單 -->
+          <table class="table">
+              <thead class="bg-primaryLight font-weight-bold table-borderless">
+                <th>刪除</th>
+                <th>縮圖</th>
+                <th>商品名稱</th>
+                <th width="150px">數量</th>
+                <th>單位</th>
+                <th>單價</th>
+              </thead>
+              <tbody>
+                <tr v-for="item in carts" :key="item.product.id + 1">
+                  <td class="align-middle">
+                    <div class="delete">
+                        <img src="~@/../static/img/trash.png" @click="removeItemCart(item.product.id)" alt="">
+                    </div>
+                  </td>
+                  <td><img :src="item.product.imageUrl" style="width: 30px; height: 30px; border-radius: 5px;" alt=""></td>
+                  <td class="align-middle">{{ item.product.title }}</td>
+                  <td class="align-middle">
+                      <div class="input-group">
+                          <div class="input-group-append">
+                              <button type="button" class="btn btn-outline-primary"
+                              @click="item.quantity --; updateQuantity(item.product.id, item.quantity)"
+                              :disabled="item.quantity ===1">-
+                              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                                v-if="status.loadingItem === item.id"></span>
+                              </button>
+                          </div>
+                          <input type="number" class="form-control text-center" v-model="item.quantity" min=1
+                            @change="updateQuantity(item.product.id, item.quantity)">
+                          <div class="input-group-prepend">
+                              <button type="button" class="btn btn-outline-primary"
+                              @click="item.quantity ++; updateQuantity(item.product.id, item.quantity)">+
+                              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                                v-if="status.loadingItem === item.id"></span>
+                              </button>
+                          </div>
+                      </div>
+                  </td>
+                  <td class="align-middle">{{ item.product.unit }}</td>
+                  <td class="align-middle">{{ item.product.price | thousands }}</td>
+                </tr>
+              </tbody>
+          </table>
+          <!-- 套用優惠碼 -->
+          <div class="row d-flex flex-row-reverse">
+            <div class="col-md-6">
+                <div class="input-group mb-3 input-group-sm">
+                <input
+                  v-model="coupon_code"
+                  type="text"
+                  class="form-control"
+                  placeholder="請輸入優惠碼"
+                >
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    @click="addCoupon"
+                  >
+                    套用優惠碼
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 消費總額計算 -->
+          <div class="row d-flex flex-row-reverse mt-5">
+            <div class="col-md-3">
+              <div class="totalCost">
+                <p class="d-inline mr-3">消費總計</p><span>NT{{ cartTotal | thousands}}</span>
+              </div>
+              <div class="totalDiscount mt-3 mb-3">
+                <p class="d-inline text-success mr-3">優惠折扣</p>
+                <span class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="totalAmount p-2" style="background-color: #e5e1e1;">
+                <p class="text-right">訂單內有 <span class="text-danger">{{ quantity }}</span> 件商品，
+                  <span>本筆訂單總金額
+                    <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal | thousands}}</span>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3 mb-5">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <button type="button" class="btn btn-primary text-white btn-block rounded-0"
+                    @click="continueShopping">
+                      繼續購物
+                  </button>
+                </div>
+                <div class="col-6">
+                  <button type="button" class="btn btn-secondary btn-block text-white rounded-0"
+                    @click="nextStep">
+                      下一步
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="container">
-          <div class="row d-flex justify-content-center">
-              <div class="col-md-10">
-                  <div class="text-right m-3">
-                      <button class="btn btn-outline-danger" @click="removeAllCarts">
-                          刪除所有品項 <i class="far fa-trash-alt"></i>
-                      </button>
-                  </div>
-                  <!-- 清單 -->
-                  <table class="table">
-                      <thead class="bg-primaryLight font-weight-bold table-borderless">
-                          <th>刪除</th>
-                          <th>縮圖</th>
-                          <th>商品名稱</th>
-                          <th width="150px">數量</th>
-                          <th>單位</th>
-                          <th>單價</th>
-                      </thead>
-                      <tbody>
-                          <tr v-for="item in carts" :key="item.product.id + 1">
-                              <td class="align-middle">
-                                <div class="delete">
-                                    <img src="~@/../static/img/trash.png" @click="removeItemCart(item.product.id)" alt="">
-                                </div>
-                              </td>
-                              <td><img :src="item.product.imageUrl" style="width: 30px; height: 30px; border-radius: 5px;" alt=""></td>
-                              <td class="align-middle">{{ item.product.title }}</td>
-                              <td class="align-middle">
-                                  <div class="input-group">
-                                      <div class="input-group-append">
-                                          <button type="button" class="btn btn-outline-primary"
-                                          @click="item.quantity --; updateQuantity(item.product.id, item.quantity)"
-                                          :disabled="item.quantity ===1">-
-                                          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
-                                            v-if="status.loadingItem === item.id"></span>
-                                          </button>
-                                      </div>
-                                      <input type="number" class="form-control text-center" v-model="item.quantity" min=1
-                                        @change="updateQuantity(item.product.id, item.quantity)">
-                                      <div class="input-group-prepend">
-                                          <button type="button" class="btn btn-outline-primary"
-                                          @click="item.quantity ++; updateQuantity(item.product.id, item.quantity)">+
-                                          <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
-                                            v-if="status.loadingItem === item.id"></span>
-                                          </button>
-                                      </div>
-                                  </div>
-                              </td>
-                              <td class="align-middle">{{ item.product.unit }}</td>
-                              <td class="align-middle">{{ item.product.price | thousands }}</td>
-                          </tr>
-                      </tbody>
-                  </table>
-                  <!-- 套用優惠碼 -->
-                  <div class="row d-flex flex-row-reverse">
-                    <div class="col-md-6">
-                       <div class="input-group mb-3 input-group-sm">
-                        <input
-                          v-model="coupon_code"
-                          type="text"
-                          class="form-control"
-                          placeholder="請輸入優惠碼"
-                        >
-                        <div class="input-group-append">
-                          <button
-                            class="btn btn-outline-secondary"
-                            type="button"
-                            @click="addCoupon"
-                          >
-                            套用優惠碼
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- 消費總額計算 -->
-                  <div class="row d-flex flex-row-reverse mt-5">
-                    <div class="col-md-3">
-                      <div class="totalCost">
-                        <p class="d-inline mr-3">消費總計</p><span>NT{{ cartTotal | thousands}}</span>
-                      </div>
-                      <div class="totalDiscount mt-3 mb-3">
-                        <p class="d-inline text-success mr-3">優惠折扣</p>
-                        <span class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands}}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="totalAmount p-2" style="background-color: #e5e1e1;">
-                        <p class="text-right">訂單內有 <span class="text-danger">{{ quantity }}</span> 件商品，
-                          <span>本筆訂單總金額
-                            <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal | thousands}}</span>
-                          </span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row mt-3 mb-5">
-                    <div class="col-12">
-                      <div class="row">
-                        <div class="col-6">
-                          <button type="button" class="btn btn-primary text-white btn-block rounded-0"
-                            @click="continueShopping">
-                              繼續購物
-                          </button>
-                        </div>
-                      <div class="col-6">
-                        <button type="button" class="btn btn-secondary btn-block text-white rounded-0"
-                          @click="nextStep">
-                            下一步
-                        </button>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-      </div>
     </div>
+  </div>
 </template>
 <script>
 export default {

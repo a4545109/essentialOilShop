@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <div class="shop">
-            <Sidebar></Sidebar>
-            <router-view/>
-            <Footer></Footer>
-        </div>
+  <div>
+    <div class="shop">
+        <Sidebar></Sidebar>
+        <router-view/>
+        <Footer></Footer>
     </div>
+  </div>
 </template>
 <script>
 import Sidebar from '@/components/Sidebar'

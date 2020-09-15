@@ -1,67 +1,67 @@
 <template>
   <div>
-     <!-- banner -->
+    <!-- banner -->
     <div class="container mb-5">
-        <div class="banner bg-cover">
-            <div class="bannerDecoration">
-                <img src="~@/../static/img/bannerDecoration.png" alt="">
-            </div>
+      <div class="banner bg-cover">
+        <div class="bannerDecoration">
+          <img src="~@/../static/img/bannerDecoration.png" alt="">
         </div>
+      </div>
     </div>
     <!-- swiper -->
     <div class="container">
-        <div class="limitedTimeOfferTital text-center mb-5">
-            限時優惠
-        </div>
-        <div class="mb-5" is="swiper"></div>
+      <div class="limitedTimeOfferTital text-center mb-5">
+        限時優惠
+      </div>
+      <div class="mb-5" is="swiper"></div>
     </div>
     <!-- wall -->
     <div class="container">
-        <div class="row wallF no-gutters" :class="{ 'wallFlower': wallFlower }">
-            <div class="col-md-6">
-                <div class="wallFlowerImg bg-cover">
-                    <div class="wallLinesUp"></div>
-                    <div class="wallLinesDown"></div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="wallFlowerContent p-5">
-                    <h2 class="wallFlowerTitle mb-5">七夕情人節</h2><span>送禮首選</span>
-                    <div class="wallFlowerText">
-                        <p class="mb-3">聽說<br>
-                            牛郎與織女不是搭上鵲橋相會的
-                        </p>
-                        <p>而是<br>
-                            戀上彼此熟悉的味道 ❤
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div class="row wallF no-gutters" :class="{ 'wallFlower': wallFlower }">
+        <div class="col-md-6">
+          <div class="wallFlowerImg bg-cover">
+            <div class="wallLinesUp"></div>
+            <div class="wallLinesDown"></div>
+          </div>
         </div>
-        <div class="row wallS no-gutters" :class="{ 'wallSky': wallSky }">
-            <div class="col-md-6 d-md-none d-block">
-                <div class="wallSkyImg bg-cover">
-                    <div class="wallLinesUp"></div>
-                    <div class="wallLinesDown"></div>
-                </div>
+        <div class="col-md-6">
+          <div class="wallFlowerContent p-5">
+            <h2 class="wallFlowerTitle mb-5">七夕情人節</h2><span>送禮首選</span>
+            <div class="wallFlowerText">
+              <p class="mb-3">聽說<br>
+                  牛郎與織女不是搭上鵲橋相會的
+              </p>
+              <p>而是<br>
+                  戀上彼此熟悉的味道 ❤
+              </p>
             </div>
-            <div class="col-md-6">
-                <div class="wallSkyContent p-5">
-                    <h2 class="wallSkyTitle mb-5">開創新世界 讓生活更美好</h2>
-                    <div class="wallSkyText">
-                        <p>淨化空氣 消除異味 <br>
-                            促進新層代謝 增強免疫功能 <br>
-                            使情緒 放鬆 舒緩 </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 d-md-block d-none">
-                <div class="wallSkyImg bg-cover">
-                    <div class="wallLinesUp"></div>
-                    <div class="wallLinesDown"></div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <div class="row wallS no-gutters" :class="{ 'wallSky': wallSky }">
+        <div class="col-md-6 d-md-none d-block">
+          <div class="wallSkyImg bg-cover">
+            <div class="wallLinesUp"></div>
+            <div class="wallLinesDown"></div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="wallSkyContent p-5">
+            <h2 class="wallSkyTitle mb-5">開創新世界 讓生活更美好</h2>
+            <div class="wallSkyText">
+                <p>淨化空氣 消除異味 <br>
+                    促進新層代謝 增強免疫功能 <br>
+                    使情緒 放鬆 舒緩 </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-md-block d-none">
+          <div class="wallSkyImg bg-cover">
+            <div class="wallLinesUp"></div>
+            <div class="wallLinesDown"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- customerFeedback -->

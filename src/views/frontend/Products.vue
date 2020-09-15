@@ -1,90 +1,90 @@
 <template>
-    <div>
-      <!-- loading 套件 -->
-      <loading :active.sync="isLoading"></loading>
-      <!-- banner -->
-      <div class="container">
-          <div class="p-banner-img bg-cover">
+  <div>
+    <!-- loading 套件 -->
+    <loading :active.sync="isLoading"></loading>
+    <!-- banner -->
+    <div class="container">
+        <div class="p-banner-img bg-cover">
+        </div>
+    </div>
+    <!-- 產品類別 -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="p-list list-group sticky-top mb-5" id="myList" role="tablist">
+            <p class="list-group-item list-group-item-action active text-center bg-primary text-white rounded-0"
+                data-toggle="list" href="#">商場類別</p>
+            <a class="list-group-item list-group-item-action"
+              data-toggle="list" href="#" role="tab"
+              @click.prevent="selectCategory('all')">
+              <i class="p-icon fab fa-product-hunt mr-1"></i>全部產品</a>
+            <a class="list-group-item list-group-item-action"
+              data-toggle="list" href="#" role="tab"
+              @click.prevent="selectCategory('essential')">
+              <i class="p-icon fas fa-fan mr-1"></i>香氛精油</a>
+            <a class="list-group-item list-group-item-action"
+              data-toggle="list" href="#" role="tab"
+              @click.prevent="selectCategory('machine')">
+              <i class="p-icon text-center fas fa-tint mr-1"></i>芳療機</a>
+            <a class="list-group-item list-group-item-action rounded-0"
+              data-toggle="list" href="#" role="tab"
+              @click.prevent="selectCategory('other')">
+              <i class="p-icon fas fa-ellipsis-h mr-1"></i>其他</a>
           </div>
-      </div>
-      <!-- 產品類別 -->
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="p-list list-group sticky-top mb-5" id="myList" role="tablist">
-                  <p class="list-group-item list-group-item-action active text-center bg-primary text-white rounded-0"
-                      data-toggle="list" href="#">商場類別</p>
-                  <a class="list-group-item list-group-item-action"
-                    data-toggle="list" href="#" role="tab"
-                    @click.prevent="selectCategory('all')">
-                    <i class="p-icon fab fa-product-hunt mr-1"></i>全部產品</a>
-                  <a class="list-group-item list-group-item-action"
-                    data-toggle="list" href="#" role="tab"
-                    @click.prevent="selectCategory('essential')">
-                    <i class="p-icon fas fa-fan mr-1"></i>香氛精油</a>
-                  <a class="list-group-item list-group-item-action"
-                    data-toggle="list" href="#" role="tab"
-                    @click.prevent="selectCategory('machine')">
-                    <i class="p-icon text-center fas fa-tint mr-1"></i>芳療機</a>
-                  <a class="list-group-item list-group-item-action rounded-0"
-                    data-toggle="list" href="#" role="tab"
-                    @click.prevent="selectCategory('other')">
-                    <i class="p-icon fas fa-ellipsis-h mr-1"></i>其他</a>
-              </div>
-          </div>
-          <div class="col-md-9 mb-4">
-              <div class="row">
-                <div class="col-md-6 mb-3" v-for="item in filterProducts" :key="item.id">
-                    <div class="card">
-                        <div class="p-card-img bg-cover"
-                            :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
-                        <div class="card-body productsContent">
-                            <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
-                            <span href="#" class="category badge badge-secondary">{{ item.category}}</span>
-                            <p class="p-text mb-3">{{ item.content }}</p>
-                            <div class="h5" v-if="!item.price || item.price === item.origin_price">
-                                <!-- 售價(price)欄位是可選的,因此售價若為空,就顯示原價(origin_price)
-                                    售價若不為空,就顯示原價(origin_price)與售價(price) -->
-                                原價{{item.origin_price}}元
-                            </div>
-                            <div class="row" v-else>
-                              <div class="col-6 h5 text-secondary">原價<p>NT{{ item.origin_price | thousands}}</p></div>
-                              <div class="col-6 h5 text-danger">優惠價<p>NT{{ item.price | thousands }}</p></div>
-                            </div>
-                            <!-- <div v-else>
-                                <del class="h6">原價{{item.origin_price | thousands}}</del>
-                                <div class="h5 price">現在只要{{ item.price | thousands }}</div>
-                            </div> -->
-                        </div>
-                        <div class="cardFooter">
-                            <div class="row no-gutters">
-                                <div class="col-6">
-                                  <button type="button" class="btn btn-outline-primaryLight text-primary btn-block rounded-0"
-                                      @click="getProduct(item.id)"
-                                      :disabled="status.loadingItem === item.id">
-                                      查看詳情
-                                      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
-                                      v-if="status.loadingItem === item.id"></span>
-                                  </button>
-                                </div>
-                                <div class="col-6">
-                                  <button type="button" class="btn btn-primary text-white btn-block rounded-0"
-                                      @click="addToCart(item.id)"
-                                      :disabled="status.loadingItem === item.id">
-                                      加到購物車
-                                      <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
-                                      v-if="status.loadingItem === item.id"></span>
-                                  </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+        <div class="col-md-9 mb-4">
+          <div class="row">
+            <div class="col-md-6 mb-3" v-for="item in filterProducts" :key="item.id">
+              <div class="card">
+                <div class="p-card-img bg-cover"
+                    :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
+                <div class="card-body productsContent">
+                <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
+                <span href="#" class="category badge badge-secondary">{{ item.category}}</span>
+                <p class="p-text mb-3">{{ item.content }}</p>
+                <div class="h5" v-if="!item.price || item.price === item.origin_price">
+                    <!-- 售價(price)欄位是可選的,因此售價若為空,就顯示原價(origin_price)
+                        售價若不為空,就顯示原價(origin_price)與售價(price) -->
+                    原價{{item.origin_price}}元
                 </div>
+                <div class="row" v-else>
+                  <div class="col-6 h5 text-secondary">原價<p>NT{{ item.origin_price | thousands}}</p></div>
+                  <div class="col-6 h5 text-danger">優惠價<p>NT{{ item.price | thousands }}</p></div>
+                </div>
+                    <!-- <div v-else>
+                        <del class="h6">原價{{item.origin_price | thousands}}</del>
+                        <div class="h5 price">現在只要{{ item.price | thousands }}</div>
+                    </div> -->
+                </div>
+                <div class="cardFooter">
+                  <div class="row no-gutters">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-outline-primaryLight text-primary btn-block rounded-0"
+                        @click="getProduct(item.id)"
+                        :disabled="status.loadingItem === item.id">
+                        查看詳情
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                        v-if="status.loadingItem === item.id"></span>
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button type="button" class="btn btn-primary text-white btn-block rounded-0"
+                        @click="addToCart(item.id)"
+                        :disabled="status.loadingItem === item.id">
+                        加到購物車
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                        v-if="status.loadingItem === item.id"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>

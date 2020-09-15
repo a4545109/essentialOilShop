@@ -1,16 +1,16 @@
 <template>
-    <div>
-         <div id="nav">
-            <router-link to="/">前台</router-link>|
-            <router-link to="/admin/products">產品管理</router-link>|
-            <router-link to="/admin/coupons">優惠卷管理</router-link>|
-            <router-link to="/admin/orders">訂單列表</router-link>|
-            <router-link to="/admin/storages">圖片儲存列表</router-link>|
-            <router-link to="/cart_checkout">我的訂單</router-link>
-            <hr>
-        </div>
-        <router-view :token="token" v-if="checkSuccess"/>
+  <div>
+    <div id="nav">
+      <router-link to="/">前台</router-link>|
+      <router-link to="/admin/products">產品管理</router-link>|
+      <router-link to="/admin/coupons">優惠卷管理</router-link>|
+      <router-link to="/admin/orders">訂單列表</router-link>|
+      <router-link to="/admin/storages">圖片儲存列表</router-link>|
+      <router-link to="/cart_checkout">我的訂單</router-link>
+      <hr>
     </div>
+    <router-view :token="token" v-if="checkSuccess"/>
+  </div>
 </template>
 
 <script>
@@ -43,6 +43,5 @@ export default {
         })
     }
   }
-
 }
 </script>

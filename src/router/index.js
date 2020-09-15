@@ -79,21 +79,3 @@ const router = new VueRouter({
 })
 
 export default router
-
-// ##前端頁面
-// 首頁 /
-// 關於我們 /about
-// 產品頁面 /products
-//   單一產品頁面 /product
-// 購物車 /cart
-// 購物成功
-
-// ##後台管理頁面
-// 登入頁面 /login
-// 產品管理頁面 /admin/products 巢狀路由
-// 優惠卷管理頁面 /admin/coupons 巢狀路由
-// 訂單管理頁面
-
-// 1. 開 .vue 檔
-// 2. 建立路由
-// 3. 加入路徑 router-link

@@ -1,61 +1,61 @@
 <template>
-    <div>
-      <!-- 產品細節 -->
-      <div class="container mt-5">
-        <div class="row mb-5">
-          <div class="col-md-6">
-            <div class="productImg bg-cover"
-                :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div>
+  <div>
+    <!-- 產品細節 -->
+    <div class="container mt-5">
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <div class="productImg bg-cover"
+              :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div>
+        </div>
+        <div class="col-md-6">
+          <h2 class="h2 font-weight-bold">{{ product.title }}</h2>
+          <div class="row mb-4">
+            <div class="col-6 h5 text-secondary">原價NT{{ product.origin_price | thousands}}</div>
+            <div class="col-6 h5 text-danger">優惠價NT{{ product.price | thousands }}</div>
           </div>
-          <div class="col-md-6">
-            <h2 class="h2 font-weight-bold">{{ product.title }}</h2>
-            <div class="row mb-4">
-              <div class="col-6 h5 text-secondary">原價NT{{ product.origin_price | thousands}}</div>
-              <div class="col-6 h5 text-danger">優惠價NT{{ product.price | thousands }}</div>
+          <div class="row">
+            <div class="col-12">
+              <pre style="line-height:20px;">{{ product.content }}</pre>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <pre style="line-height:20px;">{{ product.content }}</pre>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="payment">
-                  <div class="form-group mt-5">
-                      <label class="h5 font-weight-bold" for="number">數量</label>
-                      <select class="form-control" id="number" v-model="product.num">
-                          <option value="0" disabled>請選擇數目</option>
-                          <option v-for="num in 10" :key="num" :value="num">
-                              選購 {{ num }} {{ product.unit }}
-                          </option>
-                      </select>
-                  </div>
-               </div>
-              </div>
-              <div class="col-12">
-                <div class="addToCart">
-                  <button type="button" class="btn btn-primary btn-block"
-                        @click="addToCart(product.id, product.num)">
-                      <i v-if="product.id === status.loadingItem" class="fas fa-spinner fa-spin"></i>
-                      加到購物車
-                  </button>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="payment">
+                <div class="form-group mt-5">
+                    <label class="h5 font-weight-bold" for="number">數量</label>
+                    <select class="form-control" id="number" v-model="product.num">
+                        <option value="0" disabled>請選擇數目</option>
+                        <option v-for="num in 10" :key="num" :value="num">
+                            選購 {{ num }} {{ product.unit }}
+                        </option>
+                    </select>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="productDetailsTital mb-3">
-            產品詳情
-          </div>
-        </div>
-        <div class="row">
-          <div class="productDetailsContent mb-5">
-            <pre>{{ product.description }}</pre>
+            <div class="col-12">
+              <div class="addToCart">
+                <button type="button" class="btn btn-primary btn-block"
+                      @click="addToCart(product.id, product.num)">
+                    <i v-if="product.id === status.loadingItem" class="fas fa-spinner fa-spin"></i>
+                    加到購物車
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="productDetailsTital mb-3">
+          產品詳情
+        </div>
+      </div>
+      <div class="row">
+        <div class="productDetailsContent mb-5">
+          <pre>{{ product.description }}</pre>
+        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
