@@ -38,50 +38,52 @@
             </button>
           </div>
           <!-- 清單 -->
-          <table class="table">
-              <thead class="bg-primaryLight font-weight-bold table-borderless">
-                <th>刪除</th>
-                <th>縮圖</th>
-                <th>商品名稱</th>
-                <th width="150px">數量</th>
-                <th>單位</th>
-                <th>單價</th>
-              </thead>
-              <tbody>
-                <tr v-for="item in carts" :key="item.product.id + 1">
-                  <td class="align-middle">
-                    <div class="delete">
-                        <img src="~@/../static/img/trash.png" @click="removeItemCart(item.product.id)" alt="">
-                    </div>
-                  </td>
-                  <td><img :src="item.product.imageUrl" style="width: 30px; height: 30px; border-radius: 5px;" alt=""></td>
-                  <td class="align-middle">{{ item.product.title }}</td>
-                  <td class="align-middle">
-                      <div class="input-group">
-                          <div class="input-group-append">
-                              <button type="button" class="btn btn-outline-primary"
-                              @click="item.quantity --; updateQuantity(item.product.id, item.quantity)"
-                              :disabled="item.quantity ===1">-
-                              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
-                                v-if="status.loadingItem === item.id"></span>
-                              </button>
-                          </div>
-                          <input type="number" class="form-control text-center" v-model="item.quantity" min=1
-                            @change="updateQuantity(item.product.id, item.quantity)">
-                          <div class="input-group-prepend">
-                              <button type="button" class="btn btn-outline-primary"
-                              @click="item.quantity ++; updateQuantity(item.product.id, item.quantity)">+
-                              <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
-                                v-if="status.loadingItem === item.id"></span>
-                              </button>
-                          </div>
+          <div class="table-responsive">
+            <table class="table">
+                <thead class="bg-primaryLight font-weight-bold table-borderless">
+                  <th>刪除</th>
+                  <th class="thumbnail">縮圖</th>
+                  <th>商品名稱</th>
+                  <th class="cartNum">數量</th>
+                  <th class="unit">單位</th>
+                  <th>單價</th>
+                </thead>
+                <tbody>
+                  <tr v-for="item in carts" :key="item.product.id + 1">
+                    <td class="align-middle">
+                      <div class="delete">
+                          <img src="~@/../static/img/trash.png" @click="removeItemCart(item.product.id)" alt="">
                       </div>
-                  </td>
-                  <td class="align-middle">{{ item.product.unit }}</td>
-                  <td class="align-middle">{{ item.product.price | thousands }}</td>
-                </tr>
-              </tbody>
-          </table>
+                    </td>
+                    <td class="thumbnail"><img :src="item.product.imageUrl" style="width: 30px; height: 30px; border-radius: 5px;" alt=""></td>
+                    <td class="align-middle productName">{{ item.product.title }}</td>
+                    <td class="align-middle">
+                        <div class="input-group">
+                            <div class="input-group-append numberBox">
+                                <button type="button" class="btn btn-outline-primary"
+                                @click="item.quantity --; updateQuantity(item.product.id, item.quantity)"
+                                :disabled="item.quantity ===1">-
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                                  v-if="status.loadingItem === item.id"></span>
+                                </button>
+                            </div>
+                            <input type="number" class="form-control text-center" v-model="item.quantity" min=1
+                              @change="updateQuantity(item.product.id, item.quantity)">
+                            <div class="input-group-prepend numberBox">
+                                <button type="button" class="btn btn-outline-primary"
+                                @click="item.quantity ++; updateQuantity(item.product.id, item.quantity)">+
+                                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"
+                                  v-if="status.loadingItem === item.id"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="align-middle unit">{{ item.product.unit }}</td>
+                    <td class="align-middle">{{ item.product.price | thousands }}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
           <!-- 套用優惠碼 -->
           <div class="row d-flex flex-row-reverse">
             <div class="col-md-6">
@@ -247,8 +249,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-  .delete{
-    cursor:pointer;
-  }
-</style>
