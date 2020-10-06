@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- loading 套件 -->
+    <loading :active.sync="isLoading"></loading>
     <!-- 產品細節 -->
     <div class="container mt-5">
       <div class="row mb-5">
@@ -67,6 +69,7 @@ export default {
       status: {
         loadingItem: ''
       },
+      isLoading: false,
       carts: []
     }
   },
@@ -91,20 +94,27 @@ export default {
           this.$bus.$emit('message:push', '已加入購物車', 'danger')
           this.status.loadingItem = ''
         })
+    },
+    getProduct () {
+      const id = this.$route.params.id
+      this.isLoading = true
+      this.$http.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/product/${id}`)
+        .then((response) => {
+          this.product = response.data.data
+          this.isLoading = false
+        })
     }
   },
   created () {
+    this.getProduct()
+    // this.isLoading = false
     console.log(this.$route.params.id)
     // 屬性 $route
     // 方法 $router
-    const id = this.$route.params.id
-    this.$http.get(`${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/product/${id}`).then((response) => {
-      this.product = response.data.data
-      console.log(response)
-    })
   }
 }
 </script>
+
 <style scoped>
 .productDetailsTital{
   font-size: 30px;

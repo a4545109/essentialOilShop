@@ -2,7 +2,7 @@
   <div :class="{ 'goTopShow': goTopShow }" @click="goTop()" title="Back to Top">
     <img src="~@/../static/img/Top.png" class="shake-little" alt="">
   </div>
-</template>rocket
+</template>
 
 <script>
 export default {

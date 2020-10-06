@@ -40,6 +40,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data () {
@@ -54,7 +55,6 @@ export default {
   methods: {
     signin () {
       const api = `${process.env.VUE_APP_APIPATH}/api/auth/login`
-      // eslint-disable-next-line no-undef
       this.$http.post(api, this.user).then((response) => {
         const token = response.data.token
         const expired = response.data.expired

@@ -28,7 +28,6 @@ export default {
     checkLogin () {
       this.token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, '$1')
       this.$http.defaults.headers.common.Authorization = `Bearer ${this.token}`
-      // eslint-disable-next-line
       const api = `${process.env.VUE_APP_APIPATH}/api/auth/check`
       this.$http.post(api, {
         api_token: this.token

@@ -60,7 +60,6 @@
 </template>
 
 <script>
-// eslint-disable-next-line no-unused-vars
 /* global $ */
 import Pagination from '@/components/Pagination.vue'
 export default {

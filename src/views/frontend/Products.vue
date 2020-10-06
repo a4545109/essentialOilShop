@@ -12,8 +12,8 @@
       <div class="row">
         <div class="col-md-3">
           <div class="p-list list-group sticky-top mb-5" id="myList" role="tablist">
-            <p class="list-group-item list-group-item-action active text-center bg-primary text-white rounded-0"
-                data-toggle="list" href="#">商場類別</p>
+            <p class="list-group-item list-group-item-action text-center bg-primary text-white rounded-0"
+              data-toggle="list" href="#">商場類別</p>
             <a class="list-group-item list-group-item-action"
               data-toggle="list" href="#" role="tab"
               @click.prevent="selectCategory('all')">

@@ -112,6 +112,7 @@
     <div is="gotop"></div>
   </div>
 </template>
+
 <script>
 /* global $ */
 import Gotop from '@/components/Gotop.vue'

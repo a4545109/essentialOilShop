@@ -4,6 +4,7 @@
       <router-view/>
   </div>
 </template>
+
 <script>
 import Toast from '@/components/Toasts.vue'
 export default {
@@ -25,7 +26,6 @@ export default {
 
 #nav {
   padding: 10px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
