@@ -1,3 +1,6 @@
+li{
+    list-style: none;
+}
 .bg-cover{
     background-repeat: no-repeat;
     background-size: cover;
@@ -6,8 +9,6 @@
 .clearfix{
     clear: both;
 }
-
-
 .setp{
     position: relative;
     padding-left: 0;
@@ -16,13 +17,11 @@
     font-weight: bold;
     &-item{
         position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
         background-color: $primaryLight;
         color: $primary;
         width: 90px;
-        height: 80px;
+        padding: 15px 0;
         border-radius: 5px;
     }
     &::before{

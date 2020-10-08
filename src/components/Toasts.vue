@@ -11,12 +11,13 @@
       data-autohide="false"
     >
       <div class="toast-header">
-        <div
-          class="inline-block rounded mr-2"
-          style="width: 20px; height: 20px"
-          :class="`bg-${ item.status }`"
-        />
-        <strong class="mr-auto">訊息</strong>
+        <div class="alertIcon" v-if="item.status === 'success'">
+          <img src="~@/../static/img/success.png" alt="">
+        </div>
+        <div class="alertIcon" v-else>
+          <img src="~@/../static/img/failure.png" alt="">
+        </div>
+        <strong class="mr-auto">{{ item.message }}</strong>
         <button
           type="button"
           class="ml-2 mb-1 close"
@@ -26,9 +27,6 @@
         >
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="toast-body">
-        {{ item.message }}
       </div>
     </div>
   </div>
@@ -52,7 +50,7 @@ export default {
   },
   methods: {
     updateMessage (message, status) {
-      const timestamp = Math.floor(new Date() / 1000)
+      const timestamp = Math.floor(new Date() / 10000)
       this.messages.push({
         message,
         status,
@@ -79,3 +77,20 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.toast-header{
+  position: relative;
+  overflow: hidden;
+}
+.alertIcon img{
+  animation: bounceInLeft 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+@keyframes bounceInLeft {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: none;
+  }
+}
+</style>

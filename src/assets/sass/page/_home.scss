@@ -16,6 +16,9 @@
   height: 200px;
   position: relative;
 }
+.wall{
+  overflow: hidden;
+}
 .wallFlowerImg{
   background-image: url('~@/../static/img/wallFlower.jpg');
   height: 347px;
@@ -73,10 +76,10 @@
 
 //動畫
 .wallFlower{
-  animation: bounceInLeft 3s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+  animation: bounceInLeft 3s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 .wallSky{
-  animation: bounceInRight 3s cubic-bezier(0.215, 0.610, 0.355, 1.000)
+  animation: bounceInRight 3s cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
 @keyframes bounceInLeft {
   0% {

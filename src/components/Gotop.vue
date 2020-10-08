@@ -44,5 +44,6 @@ export default {
 }
 .goTopShow:hover {
   opacity: 1; /* 透明度 */
+  transform:rotate(6.25rad);
 }
 </style>

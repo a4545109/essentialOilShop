@@ -16,7 +16,7 @@
       <div class="mb-5" is="swiper"></div>
     </div>
     <!-- wall -->
-    <div class="container">
+    <div class="wall container">
       <div class="row wallF no-gutters" :class="{ 'wallFlower': wallFlower }">
         <div class="col-md-6">
           <div class="wallFlowerImg bg-cover">
@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-    <div is="gotop"></div>
+    <Gotop></Gotop>
   </div>
 </template>
 

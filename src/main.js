@@ -16,7 +16,7 @@ import 'bootstrap'
 import $ from 'jquery'
 import App from './App.vue'
 import router from './router'
-import thousands from './js/money'
+import thousands from './filter/money'
 
 window.$ = $
 Vue.config.productionTip = false

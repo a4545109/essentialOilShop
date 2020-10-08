@@ -9,20 +9,20 @@
           <ul class="setp d-flex justify-content-between">
               <li class="setp-item active bg-kiwiGreen text-white">
                 <div class="stepContent">
-                  <p class="text-center mb-2">STEP1</p>
-                  <p>購物清單</p>
+                  <h6 class="text-center">STEP1</h6>
+                  <h6>購物清單</h6>
                 </div>
               </li>
               <li class="setp-item">
                 <div class="stepContent">
-                  <p class="text-center mb-2">STEP2</p>
-                  <p>填寫資料</p>
+                  <h6 class="text-center">STEP2</h6>
+                  <h6>填寫資料</h6>
                 </div>
               </li>
               <li class="setp-item">
                 <div class="stepContent">
-                  <p class="text-center mb-2">STEP3</p>
-                  <p>成功結帳</p>
+                  <h6 class="text-center">STEP3</h6>
+                  <h6>成功結帳</h6>
                 </div>
               </li>
           </ul>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="row d-flex justify-content-center">
+      <div class="row d-flex justify-content-center" v-if="carts.length > 0">
         <div class="col-md-10">
           <div class="text-right m-3">
             <button class="btn btn-outline-danger" @click="removeAllCarts">
@@ -133,13 +133,13 @@
             <div class="col-12">
               <div class="row">
                 <div class="col-6">
-                  <button type="button" class="btn btn-primary text-white btn-block rounded-0"
+                  <button type="button" class="btn btn-secondary btn-block text-white rounded-0"
                     @click="continueShopping">
                       繼續購物
                   </button>
                 </div>
                 <div class="col-6">
-                  <button type="button" class="btn btn-secondary btn-block text-white rounded-0"
+                  <button type="button" class="btn btn-primary text-white btn-block rounded-0"
                     @click="nextStep">
                       下一步
                   </button>
@@ -149,6 +149,15 @@
           </div>
         </div>
       </div>
+        <div class="emptyCarts d-flex justify-content-center my-7" v-else>
+          <h4 class="mb-3 warning-text">哎唷 ! 購物車無商品，快去逛逛
+            <router-link to="/products"
+                       class="text-dark mt-5 mt-3">
+            <i class="fas fa-chevron-left mr-2"></i>
+              繼續購物
+            </router-link>
+          </h4>
+        </div>
     </div>
   </div>
 </template>
@@ -229,13 +238,16 @@ export default {
     },
     // 套用優惠卷
     addCoupon () {
-      this.isLoading = true
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/coupon/search`
       this.$http.post(url, { code: this.coupon_code }).then(res => {
         this.coupon = res.data.data
-        this.isLoading = false
       }).catch(error => {
-        console.log(error)
+        if (this.coupon_code) {
+          this.$bus.$emit('message:push', '沒有此優惠券 ╥﹏╥', 'danger')
+        } else {
+          this.$bus.$emit('message:push', '請輸入優惠券 ╥﹏╥', 'danger')
+          console.log(error)
+        }
       })
     },
     continueShopping () {
