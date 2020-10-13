@@ -118,6 +118,7 @@
 import Gotop from '@/components/Gotop.vue'
 import Swiper from '@/components/Swiper.vue'
 export default {
+  name: 'Home',
   components: {
     Gotop,
     Swiper

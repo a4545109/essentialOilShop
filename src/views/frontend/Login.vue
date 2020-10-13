@@ -43,6 +43,7 @@
 
 <script>
 export default {
+  name: 'Login',
   data () {
     return {
       user: {
@@ -63,8 +64,8 @@ export default {
         document.cookie = `token=${token};expires=${new Date(expired * 1000)}; path=/`
         this.$bus.$emit('message:push', '登入成功', 'success')
         this.$router.push('/admin/products')
-      }).catch((error) => {
-        console.log(error)
+      }).catch(() => {
+        this.$bus.$emit('message:push', '登入失敗', 'danger')
       })
     },
     signout () {

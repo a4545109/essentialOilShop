@@ -63,6 +63,7 @@
 /* global $ */
 import Pagination from '@/components/Pagination.vue'
 export default {
+  name: 'Storages',
   components: {
     Pagination
   },

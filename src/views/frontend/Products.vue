@@ -85,6 +85,7 @@
 
 <script>
 export default {
+  name: 'Products',
   data () {
     return {
       products: {},
@@ -109,8 +110,8 @@ export default {
           this.filterProducts = res.data.data
           this.isLoading = false
         })
-        .catch(error => {
-          console.log(error)
+        .catch(() => {
+          this.$bus.$emit('message:push', '發生錯誤', 'danger')
           this.isLoading = false
         })
     },
@@ -143,8 +144,7 @@ export default {
           this.$bus.$emit('message:push', '成功加入購物車', 'success')
           this.status.loadingItem = ''
         })
-        .catch(error => {
-          console.log(error.response)
+        .catch(() => {
           this.$bus.$emit('message:push', '已加入購物車', 'danger')
           this.status.loadingItem = ''
         })

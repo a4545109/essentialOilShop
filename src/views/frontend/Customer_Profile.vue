@@ -92,6 +92,7 @@
 
 <script>
 export default {
+  name: 'CustomerPeofile',
   data () {
     return {
       coupon: {},
@@ -122,9 +123,9 @@ export default {
             this.$bus.$emit('message:push', '成功送出訂單', 'success')
           }
         })
-        .catch(error => {
+        .catch(() => {
           this.isLoading = false
-          console.log(error)
+          this.$bus.$emit('message:push', '送出失敗', 'danger')
         })
     }
   }

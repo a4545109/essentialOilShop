@@ -66,6 +66,7 @@
 
 <script>
 export default {
+  name: 'Product',
   data () {
     return {
       product: {},
@@ -93,8 +94,7 @@ export default {
           this.$bus.$emit('message:push', '成功加入購物車', 'success')
           this.status.loadingItem = ''
         })
-        .catch(error => {
-          console.log(error.response)
+        .catch(() => {
           this.$bus.$emit('message:push', '已加入購物車', 'danger')
           this.status.loadingItem = ''
         })

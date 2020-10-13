@@ -156,7 +156,7 @@
 
 <script>
 export default {
-  name: 'CustomerCheckout',
+  name: 'CartCheckout',
   data () {
     return {
       order: {

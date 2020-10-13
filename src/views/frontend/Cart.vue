@@ -164,6 +164,7 @@
 
 <script>
 export default {
+  name: 'Cart',
   data () {
     return {
       carts: [],
@@ -190,8 +191,8 @@ export default {
           this.isLoading = false
           this.updateTotal()
         })
-        .catch(error => {
-          console.log(error.response)
+        .catch(() => {
+          this.$bus.$emit('message:push', '發生錯誤', 'danger')
           this.isLoading = false
         })
     },
@@ -207,8 +208,8 @@ export default {
           this.cartTotal = 0
           this.getCarts()
         })
-        .catch(error => {
-          console.log(error.response)
+        .catch(() => {
+          this.$bus.$emit('message:push', '發生錯誤', 'danger')
         })
     },
     // 更新總價
@@ -242,12 +243,11 @@ export default {
       this.$http.post(url, { code: this.coupon_code }).then(res => {
         this.$bus.$emit('message:push', '成功使用此優惠券', 'success')
         this.coupon = res.data.data
-      }).catch(error => {
+      }).catch(() => {
         if (this.coupon_code) {
           this.$bus.$emit('message:push', '沒有此優惠券 ╥﹏╥', 'danger')
         } else {
           this.$bus.$emit('message:push', '請輸入優惠券 ╥﹏╥', 'danger')
-          console.log(error)
         }
       })
     },

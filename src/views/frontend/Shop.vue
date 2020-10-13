@@ -12,6 +12,7 @@
 import Sidebar from '@/components/Sidebar'
 import Footer from '@/components/Footer'
 export default {
+  name: 'shop',
   components: {
     Sidebar,
     Footer

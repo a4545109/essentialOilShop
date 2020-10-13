@@ -30,33 +30,35 @@
             </span>
           </a>
         </router-link>
-        <div class="sidebar navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <router-link class="routerLink" to="/products">
-                <a class="nav-link">
-                  <i class="fab fa-product-hunt mr-1"></i>
-                  <span>周邊商品</span>
-                </a>
-              </router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="routerLink" to="/login">
-                <a class="nav-link">
-                  <i class="fas fa-user mr-1"></i>
-                  <span>登入</span>
-                </a>
-              </router-link>
-            </li>
-            <!-- <li class="nav-item">
-              <router-link class="routerLink" to="/admin/products">
-                <a class="nav-link">
-                  <i class="fas fa-user mr-1"></i>
-                  <span>後台</span>
-                </a>
-              </router-link>
-            </li> -->
-          </ul>
+        <div class="container">
+          <div class="sidebar navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <router-link class="routerLink" to="/products">
+                  <a class="nav-link">
+                    <i class="fab fa-product-hunt mr-1"></i>
+                    <span>周邊商品</span>
+                  </a>
+                </router-link>
+              </li>
+              <li class="nav-item">
+                <router-link class="routerLink" to="/login">
+                  <a class="nav-link">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>登入</span>
+                  </a>
+                </router-link>
+              </li>
+              <!-- <li class="nav-item">
+                <router-link class="routerLink" to="/admin/products">
+                  <a class="nav-link">
+                    <i class="fas fa-user mr-1"></i>
+                    <span>後台</span>
+                  </a>
+                </router-link>
+              </li> -->
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -90,8 +92,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.routerLink {
-  text-decoration: none;
-}
-</style>

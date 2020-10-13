@@ -86,6 +86,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .productsPic{
   min-height: 218px;

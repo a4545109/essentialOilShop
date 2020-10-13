@@ -216,8 +216,8 @@ export default {
       this.$http[httpMethod](url, this.tempCoupon).then(() => {
         $('#couponModal').modal('hide')
         this.getCoupons()
-      }).catch((error) => {
-        console.log(error)
+      }).catch(() => {
+        this.$bus.$emit('message:push', '發生錯誤', 'danger')
       })
     }
   }

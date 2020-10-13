@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  name: 'Dashboard',
   data () {
     return {
       token: '',
@@ -36,8 +37,8 @@ export default {
           console.log(res)
           this.checkSuccess = true
         })
-        .catch((error) => {
-          console.log(error.response)
+        .catch(() => {
+          this.$bus.$emit('message:push', '發生錯誤', 'danger')
           this.$router.push('/login')
         })
     }

@@ -163,6 +163,7 @@
 /* global $ */
 import Pagination from '@/components/Pagination.vue'
 export default {
+  name: 'Products',
   components: {
     Pagination
   },
@@ -200,8 +201,8 @@ export default {
       this.$http.get(api).then((res) => {
         $('#productModal').modal('show')
         this.tempProduct = res.data.data
-      }).catch((error) => {
-        console.log(error)
+      }).catch(() => {
+        this.$bus.$emit('message:push', '發生錯誤', 'danger')
       })
     },
     updateProduct () {
@@ -216,8 +217,8 @@ export default {
       this.$http[httpMethod](api, this.tempProduct).then(() => {
         $('#productModal').modal('hide')
         this.getProducts()
-      }).catch((error) => {
-        console.log(error)
+      }).catch(() => {
+        this.$bus.$emit('message:push', '新增商品失敗', 'danger')
       })
     },
     openModal (isNew, item) {

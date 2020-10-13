@@ -1,19 +1,10 @@
 以下這邊是 Eva 助教針對程式碼的修改建議~
 1.router 請補上萬用路由。
-
-1.GitHub-Pages 首頁點選「ReadMore」購買單一商品之後，需要重新整理頁面，購物車的提示數量才會增加。
 4.GitHub-Pages 部分頁面缺少 loading 效果，例如：產品詳情。
 5.如果圖片的檔案大小過大，建議另外上傳到課程提供的 Storage (S3) 存放。
-
-11.export default 內 name 的部分，建議嘗試統一撰寫風格，可以補上或拿掉。
-12.關於 catch 的錯誤提示，不建議使用 console.log()，建議使用提示訊息告知使用者。
 16.非必要的 console.log() 可以斟酌刪除，例如：前台 Product.vue，否則造成系統的漏洞問題。原因是 console.log() 的使用時機絕大部分都是「開發模式」下使用。另外也請不要使用 bebal 來去除，我們無法保證哪一天系統突然不自動將 console.log() 去除。最主要也是養成一個良好的開發習慣，在這邊也提供相關文獻給予參考。
-17.{{ }} 的部份，建議嘗試統一撰寫風格，有助於程式碼的閱讀。例如：前台 Products.vue 的 {{ item.origin_price | thousands}}。
-18.請盡可能不要直接使用 style 來賦予樣式。原因是使用 style 會降低 CSS 彈性，建議嘗試使用 class。例如：前台的 Cart.vue、後台 Products.vue、元件 Toasts.vue。
 21.後台 Products.vue 第 230、236 行 Object.assign({}, item) 建議改寫成 { ...item }。
-23.關於 HTML 排版，標籤之間建議空一行，讓程式碼排列整齊。例如：元件 Gotop.vue。
 24.建議可以移除沒有用途的 .png 或 .vue 檔案，例如：assets 資料夾內的 logo.png、前台 Layout.vue、Shop.vue、元件 HelloWorld.vue 等。
-25.請不要使用 // eslint-disable-next-line 關閉 ESLint 提示。
 
 以下這邊是 卡斯伯老師針對 UI 及 UX 畫面的修改建議~
 
@@ -28,7 +19,6 @@ Footer 色彩過於突兀，畫面中並沒有其他區塊運用到此色彩（F
 產品細節頁面建議
 
 行動版
-漢堡選單預設應該是關閉的
 產品內頁不應出現水平捲軸
 
 使用者體驗
