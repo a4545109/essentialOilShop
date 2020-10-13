@@ -36,25 +36,21 @@
           <div class="row">
             <div class="col-md-6 mb-3" v-for="item in filterProducts" :key="item.id">
               <div class="card">
-                <div class="p-card-img bg-cover"
+                <span class="category badge badge-secondary">{{ item.category }}</span>
+                <div class="productsImg bg-cover"
                     :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
                 <div class="card-body productsContent">
-                <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
-                <span href="#" class="category badge badge-secondary">{{ item.category}}</span>
-                <p class="p-text mb-3">{{ item.content }}</p>
-                <div class="h5" v-if="!item.price || item.price === item.origin_price">
-                    <!-- 售價(price)欄位是可選的,因此售價若為空,就顯示原價(origin_price)
-                        售價若不為空,就顯示原價(origin_price)與售價(price) -->
-                    原價{{item.origin_price}}元
-                </div>
-                <div class="row" v-else>
-                  <div class="col-6 h5 text-secondary">原價<p>NT{{ item.origin_price | thousands}}</p></div>
-                  <div class="col-6 h5 text-danger">優惠價<p>NT{{ item.price | thousands }}</p></div>
-                </div>
-                    <!-- <div v-else>
-                        <del class="h6">原價{{item.origin_price | thousands}}</del>
-                        <div class="h5 price">現在只要{{ item.price | thousands }}</div>
-                    </div> -->
+                  <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
+                  <p class="p-text mb-3">{{ item.content }}</p>
+                  <div class="h5" v-if="!item.price || item.price === item.origin_price">
+                      <!-- 售價(price)欄位是可選的,因此售價若為空,就顯示原價(origin_price)
+                          售價若不為空,就顯示原價(origin_price)與售價(price) -->
+                      原價{{ item.origin_price }}元
+                  </div>
+                  <div class="row productsPrice" v-else>
+                    <div class="col-6 h5 text-secondary">原價<p>NT{{ item.origin_price | thousands }}</p></div>
+                    <div class="col-6 h5 text-danger">優惠價<p>NT{{ item.price | thousands }}</p></div>
+                  </div>
                 </div>
                 <div class="cardFooter">
                   <div class="row no-gutters">

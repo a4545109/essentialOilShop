@@ -33,7 +33,7 @@
       <div class="row d-flex justify-content-center" v-if="carts.length > 0">
         <div class="col-md-10">
           <div class="text-right m-3">
-            <button class="btn btn-outline-danger" @click="removeAllCarts">
+            <button type="button" class="btn btn-outline-danger" @click="removeAllCarts">
                 刪除所有品項 <i class="far fa-trash-alt"></i>
             </button>
           </div>
@@ -52,10 +52,10 @@
                   <tr v-for="item in carts" :key="item.product.id + 1">
                     <td class="align-middle">
                       <div class="delete">
-                          <img src="~@/../static/img/trash.png" @click="removeItemCart(item.product.id)" alt="">
+                          <i class="fas fa-minus-circle" @click="removeItemCart(item.product.id)"></i>
                       </div>
                     </td>
-                    <td class="thumbnail"><img :src="item.product.imageUrl" style="width: 30px; height: 30px; border-radius: 5px;" alt=""></td>
+                    <td class="thumbnail"><img :src="item.product.imageUrl" alt="產品縮圖"></td>
                     <td class="align-middle productName">{{ item.product.title }}</td>
                     <td class="align-middle">
                         <div class="input-group">
@@ -79,7 +79,7 @@
                         </div>
                     </td>
                     <td class="align-middle unit">{{ item.product.unit }}</td>
-                    <td class="align-middle">{{ item.product.price | thousands }}</td>
+                    <td class="align-middle text-right">{{ item.product.price | thousands }}</td>
                   </tr>
                 </tbody>
             </table>
@@ -96,8 +96,8 @@
                 >
                 <div class="input-group-append">
                   <button
-                    class="btn btn-outline-secondary"
                     type="button"
+                    class="btn btn-outline-secondary"
                     @click="addCoupon"
                   >
                     套用優惠碼
@@ -110,20 +110,20 @@
           <div class="row d-flex flex-row-reverse mt-5">
             <div class="col-md-3">
               <div class="totalCost">
-                <p class="d-inline mr-3">消費總計</p><span>NT{{ cartTotal | thousands}}</span>
+                <p class="d-inline mr-3">消費總計</p><span>NT{{ cartTotal | thousands }}</span>
               </div>
               <div class="totalDiscount mt-3 mb-3">
                 <p class="d-inline text-success mr-3">優惠折扣</p>
-                <span class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands}}</span>
+                <span class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands }}</span>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
-              <div class="totalAmount p-2" style="background-color: #e5e1e1;">
+              <div class="totalAmount p-2">
                 <p class="text-right">訂單內有 <span class="text-danger">{{ quantity }}</span> 件商品，
                   <span>本筆訂單總金額
-                    <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal | thousands}}</span>
+                    <span class="text-danger">{{ parseInt(cartTotal * (coupon.percent / 100)) || cartTotal | thousands }}</span>
                   </span>
                 </p>
               </div>
@@ -152,7 +152,7 @@
         <div class="emptyCarts d-flex justify-content-center my-7" v-else>
           <h4 class="mb-3 warning-text">哎唷 ! 購物車無商品，快去逛逛
             <router-link to="/products"
-                       class="text-dark mt-5 mt-3">
+                    class="text-dark mt-5 mt-3">
             <i class="fas fa-chevron-left mr-2"></i>
               繼續購物
             </router-link>
@@ -240,6 +240,7 @@ export default {
     addCoupon () {
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/coupon/search`
       this.$http.post(url, { code: this.coupon_code }).then(res => {
+        this.$bus.$emit('message:push', '成功使用此優惠券', 'success')
         this.coupon = res.data.data
       }).catch(error => {
         if (this.coupon_code) {

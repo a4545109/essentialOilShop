@@ -10,20 +10,20 @@
               :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div>
         </div>
         <div class="col-md-6">
-          <h2 class="h2 font-weight-bold">{{ product.title }}</h2>
-          <div class="row mb-4">
-            <div class="col-6 h5 text-secondary">原價NT{{ product.origin_price | thousands}}</div>
-            <div class="col-6 h5 text-danger">優惠價NT{{ product.price | thousands }}</div>
-          </div>
+          <h2 class="h2 font-weight-bold mb-4">{{ product.title }}</h2>
           <div class="row">
-            <div class="col-12">
-              <pre style="line-height:20px;">{{ product.content }}</pre>
+            <div class="col-12 mb-4">
+              <pre>{{ product.content }}</pre>
             </div>
           </div>
           <div class="row">
             <div class="col-12">
               <div class="payment">
-                <div class="form-group mt-5">
+                <div class="row">
+                  <del class="col-6 h5 text-secondary">原價NT{{ product.origin_price | thousands }}</del>
+                  <div class="col-6 h5 text-danger">優惠價NT{{ product.price | thousands }}</div>
+                </div>
+                <div class="form-group mt-3">
                     <label class="h5 font-weight-bold" for="number">數量</label>
                     <select class="form-control" id="number" v-model="product.num">
                         <option value="0" disabled>請選擇數目</option>
@@ -47,13 +47,17 @@
         </div>
       </div>
       <div class="row">
-        <div class="productDetailsTital mb-3">
-          產品詳情
+        <div class="col-12">
+          <div class="productDetailsTital mb-3">
+            產品詳情
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="productDetailsContent mb-5">
-          <pre>{{ product.description }}</pre>
+        <div class="col-12">
+          <div class="productDetailsContent mb-5">
+            <pre>{{ product.description }}</pre>
+          </div>
         </div>
       </div>
     </div>

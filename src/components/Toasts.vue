@@ -1,5 +1,5 @@
 <template>
-  <div style="position: fixed; top: 20px; right: 20px; min-width: 300px; z-index: 11000;">
+  <div>
     <div
       v-for="(item, i) in messages"
       :id="`toast-${i}`"
@@ -34,7 +34,6 @@
 
 <script>
 /* global $ */
-
 export default {
   name: 'Toasts',
   data () {
@@ -78,6 +77,13 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.toast{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 300px;
+  z-index: 11000;
+}
 .toast-header{
   position: relative;
   overflow: hidden;

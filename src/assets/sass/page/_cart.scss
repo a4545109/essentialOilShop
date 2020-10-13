@@ -1,23 +1,26 @@
 @import '../component/grid';
 .delete{
-    cursor:pointer;
-    @include mobile461(){
-        // width: 20px;
-    }
+  cursor:pointer;
+  @include mobile461(){
+    // width: 20px;
+  }
 }
 .cartNum{
-    width: 140px;
-    @include mobile461(){
-        width: 200px;
-    }
+  width: 140px;
+  @include mobile461(){
+    width: 200px;
+  }
 }
 .thumbnail,
 .unit,
 .numberBox{
-    @include mobile461(){
-        display: none;
-    }
+  @include mobile461(){
+    display: none;
+  }
 }
 .emptyCarts{
-    padding: 150px 0;
+  padding: 150px 0;
+}
+.totalAmount{
+  background-color: #e5e1e1;
 }

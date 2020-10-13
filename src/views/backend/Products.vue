@@ -17,11 +17,11 @@
       </thead>
       <tbody>
         <tr v-for="item in products" :key="item.id">
-          <td>{{ item.category}}</td>
+          <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
-          <td><img :src="item.imageUrl" alt="" style="width: 40px; height: 40px; border-radius: 5px;"></td>
-          <td>{{ item.origin_price | thousands}}</td>
-          <td>{{ item.price | thousands}}</td>
+          <td class="thumbnail"><img :src="item.imageUrl" alt="產品縮圖"></td>
+          <td>{{ item.origin_price | thousands }}</td>
+          <td>{{ item.price | thousands }}</td>
           <td>
             <span v-if="item.enabled">啟用</span>
             <span v-else>未啟用</span>
@@ -64,7 +64,7 @@
                   </label>
                   <input id="customFile" type="file" class="form-control" @change="uploadFile">
                 </div>
-                <img class="img-fluid" :src="tempProduct.imageUrl[0]" alt />
+                <img class="img-fluid" :src="tempProduct.imageUrl[0]"  alt="上傳的圖片">
               </div>
               <div class="col-sm-8">
                 <div class="form-group">

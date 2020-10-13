@@ -32,14 +32,6 @@
         </router-link>
         <div class="sidebar navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <router-link class="routerLink" to="/">
-                <a class="nav-link">
-                  <i class="fas fa-home mr-1"></i>
-                  <span>首頁</span>
-                </a>
-              </router-link>
-            </li>
             <li class="nav-item">
               <router-link class="routerLink" to="/products">
                 <a class="nav-link">

@@ -1,36 +1,36 @@
 li{
-    list-style: none;
+  list-style: none;
 }
 .bg-cover{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .clearfix{
-    clear: both;
+  clear: both;
 }
 .setp{
-    position: relative;
-    padding-left: 0;
-    margin-bottom: 0;
-    width: 100%;
-    font-weight: bold;
-    &-item{
-        position: relative;
-        text-align: center;
-        background-color: $primaryLight;
-        color: $primary;
-        width: 90px;
-        padding: 15px 0;
-        border-radius: 5px;
-    }
-    &::before{
-        position: absolute;
-        top: 40px;
-        left: 0;
-        right: 0;
-        height: 3px;
-        content: "";
-        background-color: $primary;
-    }
+  position: relative;
+  padding-left: 0;
+  margin-bottom: 0;
+  width: 100%;
+  font-weight: bold;
+  &-item{
+      position: relative;
+      text-align: center;
+      background-color: $primaryLight;
+      color: $primary;
+      width: 90px;
+      padding: 15px 0;
+      border-radius: 5px;
+  }
+  &::before{
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      content: "";
+      background-color: $primary;
+  }
 }

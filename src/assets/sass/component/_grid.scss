@@ -1,26 +1,26 @@
 @mixin pad-Pro {
-    @media screen and (max-width:992px) {
-        @content;
-    }
+  @media screen and (max-width:992px) {
+    @content;
+  }
 }
 
 @mixin pad {
-    @media screen and (max-width:768px) {
-        @content;
-    }
+  @media screen and (max-width:768px) {
+    @content;
+  }
 }
 @mixin mobile576 {
-    @media screen and (max-width:576px) {
-        @content;
-    }
+  @media screen and (max-width:576px) {
+    @content;
+  }
 }
 @mixin mobile461 {
-    @media screen and (max-width:461px) {
-        @content;
-    }
+  @media screen and (max-width:461px) {
+    @content;
+  }
 }
 @mixin mobile376 {
-    @media screen and (max-width:376px) {
-        @content;
-    }
+  @media screen and (max-width:376px) {
+    @content;
+  }
 }

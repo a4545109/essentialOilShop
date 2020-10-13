@@ -4,6 +4,7 @@
     <loading :active.sync="isLoading"></loading>
     <div class="text-right mt-4">
       <button
+        type="button"
         class="btn btn-primary"
         @click.prevent="openCouponModal('new')"
       >
@@ -41,12 +42,14 @@
           <td>
             <div class="btn-group">
               <button
+                type="button"
                 class="btn btn-outline-primary btn-sm"
                 @click.prevent="openCouponModal('edit', item)"
               >
                 編輯
               </button>
               <button
+                type="button"
                 class="btn btn-outline-danger btn-sm"
                 @click.prevent="openCouponModal('delete', item)"
               >

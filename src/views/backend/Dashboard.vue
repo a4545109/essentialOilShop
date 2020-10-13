@@ -9,7 +9,7 @@
       <router-link to="/cart_checkout">我的訂單</router-link>
       <hr>
     </div>
-    <router-view :token="token" v-if="checkSuccess"/>
+    <router-view v-if="checkSuccess"/>
   </div>
 </template>
 

@@ -1,29 +1,34 @@
 @import '../component/grid';
 .body{
-    font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
 }
 .sidebarLogo{
-    font-size: 30px;
-    @include pad(){
-        font-size: 22px;
-    }
+  font-size: 30px;
+  @include pad(){
+    font-size: 22px;
+  }
 }
 .sidebar li{
-    margin-left: 40px;
+  margin-left: 40px;
 }
 .tenderText{
-    font-size: 36px;
-    margin: auto;
-    @include mobile576(){
-        font-size: 28px;
-    }
+  font-size: 36px;
+  margin: auto;
+  @include mobile576(){
+    font-size: 28px;
+  }
 }
 .message{
-    @include mobile376(){
-        font-size: 16px;
-    }
+  @include mobile376(){
+    font-size: 16px;
+  }
 }
 .sign{
-    font-size: 12px;
-    margin: auto;
+  font-size: 12px;
+  margin: auto;
+}
+.thumbnail img{
+  width: 30px; 
+  height: 30px; 
+  border-radius: 5px;
 }

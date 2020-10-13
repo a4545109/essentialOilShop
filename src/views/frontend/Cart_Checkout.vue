@@ -54,6 +54,7 @@
             <td>
               <div class="btn-group btn-group-sm">
                 <button
+                  type="button"
                   class="btn btn-outline-primary"
                   :disabled="item.paid"
                   @click.prevent="getDetailed(item.id)"
@@ -103,7 +104,7 @@
               總計
             </td>
             <td class="text-right">
-              {{ order.amount | thousands}}
+              {{ order.amount | thousands }}
             </td>
           </tr>
         </tfoot>
@@ -145,7 +146,7 @@
         v-if="order.paid === false"
         class="text-right"
       >
-        <button class="btn btn-danger">
+        <button type="button" class="btn btn-danger">
           確認付款去
         </button>
       </div>
