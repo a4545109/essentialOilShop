@@ -34,7 +34,7 @@ export default {
         api_token: this.token
       })
         .then((res) => {
-          console.log(res)
+          this.$bus.$emit('message:push', '認證成功', 'success')
           this.checkSuccess = true
         })
         .catch(() => {

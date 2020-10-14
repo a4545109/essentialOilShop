@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ 'fixedTop': fixedTop }">
     <!-- sidebar -->
     <nav class="navbar navbar-expand-md navbar-light">
       <div class="container">
@@ -30,35 +30,33 @@
             </span>
           </a>
         </router-link>
-        <div class="container">
-          <div class="sidebar navbar-collapse collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <router-link class="routerLink" to="/products">
-                  <a class="nav-link">
-                    <i class="fab fa-product-hunt mr-1"></i>
-                    <span>周邊商品</span>
-                  </a>
-                </router-link>
-              </li>
-              <li class="nav-item">
-                <router-link class="routerLink" to="/login">
-                  <a class="nav-link">
-                    <i class="fas fa-user mr-1"></i>
-                    <span>登入</span>
-                  </a>
-                </router-link>
-              </li>
-              <!-- <li class="nav-item">
-                <router-link class="routerLink" to="/admin/products">
-                  <a class="nav-link">
-                    <i class="fas fa-user mr-1"></i>
-                    <span>後台</span>
-                  </a>
-                </router-link>
-              </li> -->
-            </ul>
-          </div>
+        <div class="sidebar navbar-collapse collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <router-link class="routerLink" to="/products">
+                <a class="nav-link">
+                  <i class="fab fa-product-hunt mr-1"></i>
+                  <span>周邊商品</span>
+                </a>
+              </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="routerLink" to="/login">
+                <a class="nav-link">
+                  <i class="fas fa-user mr-1"></i>
+                  <span>登入</span>
+                </a>
+              </router-link>
+            </li>
+            <!-- <li class="nav-item">
+              <router-link class="routerLink" to="/admin/products">
+                <a class="nav-link">
+                  <i class="fas fa-user mr-1"></i>
+                  <span>後台</span>
+                </a>
+              </router-link>
+            </li> -->
+          </ul>
         </div>
       </div>
     </nav>
@@ -69,7 +67,8 @@
 export default {
   data () {
     return {
-      quantity: 0
+      quantity: 0,
+      fixedTop: false
     }
   },
   methods: {
@@ -82,9 +81,17 @@ export default {
         .catch(() => {
           this.quantity = 0
         })
+    },
+    gofixedTop () {
+      if (window.pageYOffset > 76) {
+        this.fixedTop = true
+      } else {
+        this.fixedTop = false
+      }
     }
   },
   created () {
+    window.addEventListener('scroll', this.gofixedTop)
     this.getCartQuantity()
     this.$bus.$on('updateQuantity', () => {
       this.getCartQuantity()

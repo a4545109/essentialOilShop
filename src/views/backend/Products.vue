@@ -228,13 +228,13 @@ export default {
           $('#productModal').modal('show')
           break
         case 'edit':
-          this.tempProduct = Object.assign({}, item)
+          this.tempProduct = { ...item }
           this.getProduct(this.tempProduct.id)
           $('#productModal').modal('show')
           this.isNew = false
           break
         case 'delete':
-          this.tempProduct = Object.assign({}, item)
+          this.tempProduct = { ...item }
           $('#delProductModal').modal('show')
           break
         default:

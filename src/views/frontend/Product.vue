@@ -46,20 +46,6 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="productDetailsTital mb-3">
-            產品詳情
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="productDetailsContent mb-5">
-            <pre>{{ product.description }}</pre>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -87,7 +73,6 @@ export default {
         product: id,
         quantity
       }
-      console.log(cart)
       this.$http.post(url, cart)
         .then(res => {
           this.$bus.$emit('updateQuantity')
@@ -111,8 +96,6 @@ export default {
   },
   created () {
     this.getProduct()
-    // this.isLoading = false
-    console.log(this.$route.params.id)
     // 屬性 $route
     // 方法 $router
   }

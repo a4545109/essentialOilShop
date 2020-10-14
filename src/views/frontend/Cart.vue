@@ -187,7 +187,6 @@ export default {
         .then(res => {
           this.carts = res.data.data
           this.quantity = res.data.data.length
-          console.log(this.carts)
           this.isLoading = false
           this.updateTotal()
         })

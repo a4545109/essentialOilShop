@@ -1,7 +1,9 @@
 @import '../component/grid';
 
-.routerLink {
-  // @include pad(){
-  //   display: none;
-  // }
+.fixedTop{
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px rgb(245, 239, 239);
 }
