@@ -1,0 +1,16 @@
+@import '../component/grid';
+
+.productDetailsTital{
+  font-size: 30px;
+}
+.productDetailsContent{
+  line-height: 30px;
+}
+.productImg{
+  height: 355px;
+}
+.productTitle{
+   @include pad(){
+    margin-top: 26px;
+  }
+}

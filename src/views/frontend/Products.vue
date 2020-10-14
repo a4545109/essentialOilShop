@@ -36,9 +36,11 @@
           <div class="row">
             <div class="col-md-6 mb-3" v-for="item in filterProducts" :key="item.id">
               <div class="card">
-                <span class="category badge badge-secondary">{{ item.category }}</span>
-                <div class="productsImg bg-cover"
-                    :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
+                <div class="card-title">
+                  <span class="category badge badge-secondary">{{ item.category }}</span>
+                  <div class="productsImg bg-cover"
+                      :style="{ backgroundImage:`url(${item.imageUrl[0]})` }"></div>
+                </div>
                 <div class="card-body productsContent">
                   <div class="h5 font-weight-bold card-title">{{ item.title }}</div>
                   <p class="p-text mb-3">{{ item.content }}</p>

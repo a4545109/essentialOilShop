@@ -27,16 +27,6 @@ const routes = [
         component: () => import('../views/frontend/Cart.vue')
       },
       {
-        path: '/cart_checkout',
-        name: '用戶訂單列表',
-        component: () => import('../views/frontend/Cart_Checkout.vue')
-      },
-      {
-        path: '/cart_checkout/:orderId',
-        name: '用戶訂單列表',
-        component: () => import('../views/frontend/Cart_Checkout.vue')
-      },
-      {
         path: '/customer_profile',
         component: () => import('../views/frontend/Customer_Profile.vue')
       },
@@ -69,6 +59,16 @@ const routes = [
       {
         path: '/admin/storages',
         component: () => import('../views/backend/Storages.vue')
+      },
+      {
+        path: '/admin/cart_checkout',
+        name: '用戶訂單列表',
+        component: () => import('../views/backend/Cart_Checkout.vue')
+      },
+      {
+        path: '/admin/cart_checkout/:orderId',
+        name: '用戶訂單列表',
+        component: () => import('../views/backend/Cart_Checkout.vue')
       }
     ]
   }

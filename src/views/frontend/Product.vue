@@ -10,7 +10,7 @@
               :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div>
         </div>
         <div class="col-md-6">
-          <h2 class="h2 font-weight-bold mb-4">{{ product.title }}</h2>
+          <h2 class="productTitle font-weight-bold mb-4">{{ product.title }}</h2>
           <div class="row">
             <div class="col-12 mb-4">
               <pre>{{ product.content }}</pre>
@@ -34,7 +34,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 mb-5">
               <div class="addToCart">
                 <button type="button" class="btn btn-primary btn-block"
                       @click="addToCart(product.id, product.num)">
@@ -101,15 +101,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.productDetailsTital{
-  font-size: 30px;
-}
-.productDetailsContent{
-  line-height: 30px;
-}
-.productImg{
-  height: 355px;
-}
-</style>

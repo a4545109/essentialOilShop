@@ -13,6 +13,7 @@
 }
 .productsList a{
   color: #000;
+  text-decoration: none;
 }
 .productsList p{
   margin-bottom: 0px;
@@ -20,9 +21,17 @@
 .productsList .active{
   background-color: rgb(239, 240, 239);
 }
+.card-title{
+  overflow: hidden;
+}
 .productsImg{
   min-height: 210px;
+  transform: scale(1,1);
+  transition: all 0.5s ease;
   position: relative;
+}
+.productsImg:hover{
+  transform: scale(1.1,1.1);
 }
 .productsPrice p{
   margin-bottom: 0px;
