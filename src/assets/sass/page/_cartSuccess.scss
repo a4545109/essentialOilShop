@@ -1,3 +1,5 @@
+@import '../component/grid';
+
 .bannerSuccess{
   position: relative;
   background-image: url('~@/../static/img/sucess.jpg');
@@ -10,4 +12,10 @@
   width: 40%;
   background-color: #e0e0e0b9;
   border-radius: 10px;
+  @include mobile461(){
+    width: 60%;
+  }
+  @include mobile376(){
+    width: 80%;
+  }
 }

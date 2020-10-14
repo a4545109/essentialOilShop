@@ -19,6 +19,7 @@
   }
 }
 .message{
+  padding-left: 0px;
   @include mobile376(){
     font-size: 16px;
   }

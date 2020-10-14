@@ -3,7 +3,7 @@
     <!-- step -->
     <div class="container pt-5 mb-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-10">
+        <div class="col-12 col-sm-10">
           <ul class="setp d-flex justify-content-between">
               <li class="setp-item">
                 <div class="stepContent">
@@ -30,7 +30,7 @@
     <!-- bannerSucess -->
     <div class="container mb-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-10">
+        <div class="col-12 col-sm-10">
           <div class="bannerSuccess bg-cover">
             <div class="bannerSuccessText p-4">
               <h2 class="h2 text-danger">下單成功!</h2>

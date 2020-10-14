@@ -32,7 +32,7 @@
         </router-link>
         <div class="sidebar navbar-collapse collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+            <li class="nav-item mr-3">
               <router-link class="routerLink" to="/products">
                 <a class="nav-link">
                   <i class="fab fa-product-hunt mr-1"></i>
@@ -40,22 +40,6 @@
                 </a>
               </router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="routerLink" to="/login">
-                <a class="nav-link">
-                  <i class="fas fa-user mr-1"></i>
-                  <span>登入</span>
-                </a>
-              </router-link>
-            </li>
-            <!-- <li class="nav-item">
-              <router-link class="routerLink" to="/admin/products">
-                <a class="nav-link">
-                  <i class="fas fa-user mr-1"></i>
-                  <span>後台</span>
-                </a>
-              </router-link>
-            </li> -->
           </ul>
         </div>
       </div>
@@ -64,6 +48,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   data () {
     return {
@@ -91,6 +76,12 @@ export default {
     }
   },
   created () {
+    $(document).ready(function () {
+      $('a').click(function (e) {
+        $(this).addClass('active')
+        $(this).parent().siblings().find('a').removeClass('active')
+      })
+    })
     window.addEventListener('scroll', this.gofixedTop)
     this.getCartQuantity()
     this.$bus.$on('updateQuantity', () => {

@@ -5,9 +5,9 @@
         <div class="row">
           <h2 class="tenderText mt-3">來自天然的芳草 讓您陷入溫柔鄉</h2>
         </div>
-        <div class="row m-4">
+        <div class="row no-gutters m-4">
           <div class="col-md-6">
-            <ul class="message mt-md-14 mt-6">
+            <ul class="message">
               <li>實體店面: 台南市放輕鬆二段777號 </li>
               <li class="mt-2 mb-2">課服專線: (06)-XXXXXXX</li>
               <li>營業時間: 8:00 ~ 17:00</li>

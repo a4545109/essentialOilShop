@@ -5,7 +5,7 @@
     <!-- step -->
     <div class="container pt-5 mb-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-10">
+        <div class="col-12 col-sm-10">
           <ul class="setp d-flex justify-content-between">
               <li class="setp-item active bg-primary text-white">
                 <div class="stepContent">

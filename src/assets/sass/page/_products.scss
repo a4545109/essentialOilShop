@@ -8,11 +8,17 @@
   right: 10px;
   z-index: 1;
 }
-.p-icon{
+.productsIcon{
   width: 16px;
 }
-.p-list p{
+.productsList a{
+  color: #000;
+}
+.productsList p{
   margin-bottom: 0px;
+}
+.productsList .active{
+  background-color: rgb(239, 240, 239);
 }
 .productsImg{
   min-height: 210px;

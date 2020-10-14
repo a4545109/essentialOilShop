@@ -11,25 +11,25 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-3">
-          <div class="p-list list-group mb-5" id="myList" role="tablist">
-            <p class="list-group-item list-group-item-action text-center bg-primary text-white rounded-0"
+          <div class="productsList list-group mb-5" id="myList" role="tablist">
+            <p class="list-group-item text-center bg-primary text-white rounded-0"
               data-toggle="list" href="#">商場類別</p>
-            <a class="list-group-item list-group-item-action"
+            <a class="list-group-item"
               data-toggle="list" href="#" role="tab"
               @click.prevent="selectCategory('all')">
-              <i class="p-icon fab fa-product-hunt mr-1"></i>全部產品</a>
-            <a class="list-group-item list-group-item-action"
+              <i class="productsIcon fab fa-product-hunt mr-1"></i>全部產品</a>
+            <a class="list-group-item"
               data-toggle="list" href="#" role="tab"
               @click.prevent="selectCategory('essential')">
-              <i class="p-icon fas fa-fan mr-1"></i>香氛精油</a>
-            <a class="list-group-item list-group-item-action"
+              <i class="productsIcon fas fa-fan mr-1"></i>香氛精油</a>
+            <a class="list-group-item"
               data-toggle="list" href="#" role="tab"
               @click.prevent="selectCategory('machine')">
-              <i class="p-icon text-center fas fa-tint mr-1"></i>芳療機</a>
-            <a class="list-group-item list-group-item-action rounded-0"
+              <i class="productsIcon text-center fas fa-tint mr-1"></i>芳療機</a>
+            <a class="list-group-item rounded-0"
               data-toggle="list" href="#" role="tab"
               @click.prevent="selectCategory('other')">
-              <i class="p-icon fas fa-ellipsis-h mr-1"></i>其他</a>
+              <i class="productsIcon fas fa-ellipsis-h mr-1"></i>其他</a>
           </div>
         </div>
         <div class="col-md-9 mb-4">
@@ -84,6 +84,7 @@
 </template>
 
 <script>
+/* global $ */
 export default {
   name: 'Products',
   data () {
@@ -186,6 +187,12 @@ export default {
     }
   },
   created () {
+    $(document).ready(function () {
+      $('a').click(function (e) {
+        $(this).addClass('active')
+        $(this).siblings('a').removeClass('active')
+      })
+    })
     this.getProducts()
   }
 }

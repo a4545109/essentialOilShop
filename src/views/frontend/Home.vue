@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="wallFlowerContent p-5">
+          <div class="wallFlowerContent p-3 p-sm-5">
             <h2 class="wallFlowerTitle mb-5">七夕情人節</h2><span>送禮首選</span>
             <div class="wallFlowerText">
               <p class="mb-3">聽說<br>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="wallSkyContent p-5">
+          <div class="wallSkyContent p-3 p-sm-5">
             <h2 class="wallSkyTitle mb-5">開創新世界 讓生活更美好</h2>
             <div class="wallSkyText">
                 <p>淨化空氣 消除異味 <br>
