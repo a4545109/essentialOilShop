@@ -3,7 +3,7 @@
     <!-- loading 套件 -->
     <loading :active.sync="isLoading"></loading>
     <!-- 產品細節 -->
-    <div class="container mt-5">
+    <div class="container pt-5">
       <div class="row mb-5">
         <div class="col-md-6">
           <div class="productImg bg-cover"

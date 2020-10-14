@@ -1,17 +1,17 @@
 <template>
   <div>
     <!-- step -->
-    <div class="container mt-5 mb-5">
+    <div class="container pt-5 mb-5">
       <div class="row d-flex justify-content-center">
         <div class="col-10">
           <ul class="setp d-flex justify-content-between">
-              <li class="setp-item active bg-kiwiGreen text-white">
+              <li class="setp-item active">
                 <div class="stepContent">
                   <h6 class="text-center">STEP1</h6>
                   <h6>購物清單</h6>
                 </div>
               </li>
-              <li class="setp-item">
+              <li class="setp-item active bg-primary text-white">
                 <div class="stepContent">
                   <h6 class="text-center">STEP2</h6>
                   <h6>填寫資料</h6>

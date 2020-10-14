@@ -11,7 +11,7 @@
     <div class="container mt-5">
       <div class="row">
         <div class="col-md-3">
-          <div class="p-list list-group sticky-top mb-5" id="myList" role="tablist">
+          <div class="p-list list-group mb-5" id="myList" role="tablist">
             <p class="list-group-item list-group-item-action text-center bg-primary text-white rounded-0"
               data-toggle="list" href="#">商場類別</p>
             <a class="list-group-item list-group-item-action"

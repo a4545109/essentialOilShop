@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mt-5 mb-5">
+    <div class="container pt-5 mb-5">
       <div class="row">
         <div class="col-md-6">
           <!-- banner -->

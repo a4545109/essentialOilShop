@@ -3,11 +3,11 @@
   <!-- loading 套件 -->
     <loading :active.sync="isLoading"></loading>
     <!-- step -->
-    <div class="container mt-5 mb-5">
+    <div class="container pt-5 mb-5">
       <div class="row d-flex justify-content-center">
         <div class="col-10">
           <ul class="setp d-flex justify-content-between">
-              <li class="setp-item active bg-kiwiGreen text-white">
+              <li class="setp-item active bg-primary text-white">
                 <div class="stepContent">
                   <h6 class="text-center">STEP1</h6>
                   <h6>購物清單</h6>
@@ -40,7 +40,7 @@
           <!-- 清單 -->
           <div class="table-responsive">
             <table class="table">
-                <thead class="bg-primaryLight font-weight-bold table-borderless">
+                <thead class="cartTableTitle text-center font-weight-bold table-borderless">
                   <th>刪除</th>
                   <th class="thumbnail">縮圖</th>
                   <th>商品名稱</th>
@@ -48,7 +48,7 @@
                   <th class="unit">單位</th>
                   <th>單價</th>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                   <tr v-for="item in carts" :key="item.product.id + 1">
                     <td class="align-middle">
                       <div class="delete">
@@ -107,14 +107,15 @@
             </div>
           </div>
           <!-- 消費總額計算 -->
-          <div class="row d-flex flex-row-reverse mt-5">
-            <div class="col-md-3">
-              <div class="totalCost">
-                <p class="d-inline mr-3">消費總計</p><span>NT{{ cartTotal | thousands }}</span>
+          <div class="row d-flex flex-row-reverse mt-2 mb-2">
+            <div class="col-md-4">
+              <div class="totalCost d-flex justify-content-between pr-1">
+                <h6 class="d-inline mr-3">消費總計</h6>
+                <h6>NT{{ cartTotal | thousands }}</h6>
               </div>
-              <div class="totalDiscount mt-3 mb-3">
-                <p class="d-inline text-success mr-3">優惠折扣</p>
-                <span class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands }}</span>
+              <div class="totalDiscount d-flex justify-content-between pr-1">
+                <h6 class="d-inline text-success mr-3">優惠折扣</h6>
+                <h6 class="text-success">NT{{ cartTotal - (cartTotal * (coupon.percent / 100)) || 0 | thousands }}</h6>
               </div>
             </div>
           </div>
@@ -133,13 +134,13 @@
             <div class="col-12">
               <div class="row">
                 <div class="col-6">
-                  <button type="button" class="btn btn-secondary btn-block text-white rounded-0"
+                  <button type="button" class="btn btn-primary btn-block text-white rounded-0"
                     @click="continueShopping">
                       繼續購物
                   </button>
                 </div>
                 <div class="col-6">
-                  <button type="button" class="btn btn-primary text-white btn-block rounded-0"
+                  <button type="button" class="btn btn-secondary text-white btn-block rounded-0"
                     @click="nextStep">
                       下一步
                   </button>

@@ -21,6 +21,10 @@
 .emptyCarts{
   padding: 150px 0;
 }
-.totalAmount{
+.totalAmount,
+.cartTableTitle{
   background-color: #e5e1e1;
+}
+.totalAmount p{
+  margin-bottom: 0;
 }
