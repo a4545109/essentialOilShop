@@ -7,20 +7,20 @@
           <ul class="setp d-flex justify-content-between">
               <li class="setp-item">
                 <div class="stepContent">
-                  <h6 class="text-center">STEP1</h6>
-                  <h6>購物清單</h6>
+                  <span class="text-center">STEP1</span><br>
+                  <span>購物清單</span>
                 </div>
               </li>
               <li class="setp-item">
                 <div class="stepContent">
-                  <h6 class="text-center">STEP2</h6>
-                  <h6>填寫資料</h6>
+                  <span class="text-center">STEP2</span><br>
+                  <span>填寫資料</span>
                 </div>
               </li>
               <li class="setp-item active bg-primary text-white">
                 <div class="stepContent">
-                  <h6 class="text-center">STEP3</h6>
-                  <h6>成功結帳</h6>
+                  <span class="text-center">STEP3</span><br>
+                  <span>成功結帳</span>
                 </div>
               </li>
           </ul>
