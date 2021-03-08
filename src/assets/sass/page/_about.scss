@@ -1,0 +1,16 @@
+.aboutBannerImg{
+  background-image: url('~@/../public/static/img/banner-4.png');
+  height: 380px;
+}
+.aboutInfo .col-4{
+  padding-right: 0px;
+}
+.aboutInfoItem{
+  height: 200px;
+}
+.aboutInnerItem{
+  height: 95px;
+  &:nth-child(1){
+    margin-bottom: 10px;
+  }
+}

@@ -4,15 +4,13 @@
     <div class="container mb-5">
       <div class="banner bg-cover">
         <div class="bannerDecoration">
-          <img src="~@/../static/img/bannerDecoration.png" alt="space life fragrant">
+          <img src="~@/../public/static/img/bannerDecoration.png" alt="space life fragrant">
         </div>
       </div>
     </div>
     <!-- swiper -->
     <div class="container">
-      <div class="limitedTimeOfferTital text-center mb-5">
-        <h2>限時優惠</h2>
-      </div>
+      <h2 class="text-center fs-8 mb-5">限時優惠</h2>
       <div class="mb-5" is="swiper"></div>
     </div>
     <!-- wall -->
@@ -67,14 +65,12 @@
     <!-- customerFeedback -->
     <div class="container mb-5">
         <div class="customerFeedback">
-            <div class="customerFeedbackTital text-center p-5">
-                客戶回饋
-            </div>
+          <h2 class="text-center p-5 fs-8">客戶回饋</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <div class="customerFeedbackB d-flex flex-row align-items-center">
-                    <img class="customer bg-cover" src="~@/../static/img/peopleB.png" alt="peopleB">
+                    <img class="customer bg-cover" src="~@/../public/static/img/peopleB.png" alt="peopleB">
                     <div class="customerContent ml-3">
                         <h2 class="customerName mb-2">陳先生B</h2>
                         <p class="customerText">產品運送速度快速 質感良好<br>
@@ -86,7 +82,7 @@
         <div class="row mt-5 mb-5 d-flex justify-content-end">
             <div class="col-md-6">
                 <div class="customerFeedbackC d-flex flex-row align-items-center">
-                    <img class="customer bg-cover" src="~@/../static/img/peopleC.png" alt="peopleC">
+                    <img class="customer bg-cover" src="~@/../public/static/img/peopleC.png" alt="peopleC">
                     <div class="customerContent ml-3">
                         <h2 class="customerName mb-2">簡小姐C</h2>
                         <p class="customerText">真的很喜歡這家精油的香味<br>
@@ -98,7 +94,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="customerFeedbackA d-flex flex-row align-items-center">
-                    <img class="customer bg-cover" src="~@/../static/img/peopleA.png" alt="peopleA">
+                    <img class="customer bg-cover" src="~@/../public/static/img/peopleA.png" alt="peopleA">
                     <div class="customerContent ml-3">
                         <h2 class="customerName mb-2">鍾小姐A</h2>
                         <p class="customerText">試過這家的八角茴香精油<br>

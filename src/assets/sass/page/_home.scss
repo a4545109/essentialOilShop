@@ -1,5 +1,5 @@
 .banner{
-  background-image: url('~@/../static/img/bannerIndex.jpg');
+  background-image: url('~@/../public/static/img/bannerIndex.jpg');
   height: 380px;
   position: relative;
 }
@@ -7,10 +7,6 @@
   position: absolute;
   right: 5%;
   top: 20%;
-}
-.limitedTimeOfferTital,
-.customerFeedbackTital{
-  font-size: 30px;
 }
 .cardImg{
   height: 200px;
@@ -20,12 +16,12 @@
   overflow: hidden;
 }
 .wallFlowerImg{
-  background-image: url('~@/../static/img/wallFlower.jpg');
+  background-image: url('~@/../public/static/img/wallFlower.jpg');
   height: 347px;
   position: relative;
 }
 .wallSkyImg{
-  background-image: url('~@/../static/img/wallSky.jpg');
+  background-image: url('~@/../public/static/img/wallSky.jpg');
   height: 347px;
   position: relative;
 }

@@ -4,8 +4,7 @@
     <loading :active.sync="isLoading"></loading>
     <!-- banner -->
     <div class="container">
-        <div class="p-banner-img bg-cover">
-        </div>
+        <div class="p-banner-img bg-cover"></div>
     </div>
     <!-- 產品類別 -->
     <div class="container mt-5">
