@@ -113,12 +113,15 @@
 /* global $ */
 import Gotop from '@/components/Gotop.vue'
 import Swiper from '@/components/Swiper.vue'
+import AOS from 'aos'
+
 export default {
   name: 'Home',
   components: {
     Gotop,
     Swiper
   },
+
   data () {
     return {
       wallFlower: false,
@@ -127,6 +130,7 @@ export default {
   },
   created () {
     window.addEventListener('scroll', this.bounceInLeft)
+    AOS.init()
   },
   methods: {
     bounceInLeft () {

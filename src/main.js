@@ -17,6 +17,8 @@ import $ from 'jquery'
 import App from './App.vue'
 import router from './router'
 import thousands from './filter/money'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 window.$ = $
 Vue.config.productionTip = false
@@ -25,6 +27,7 @@ Vue.use(VueAxios, axios)
 Vue.component('loading', Loading)
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)
 Vue.filter('thousands', thousands)
+Vue.use(AOS)
 
 // 中文化驗證
 Vue.use(VueI18n)

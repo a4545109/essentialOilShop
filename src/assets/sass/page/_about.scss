@@ -2,14 +2,26 @@
   background-image: url('~@/../public/static/img/banner-4.png');
   height: 380px;
 }
-.aboutInfo .col-4{
+.aboutInfo{
+  & .col-12,
+  & .col-md-4{
   padding-right: 0px;
+  }
+  @include pad(){
+    & .col-12{
+      margin-bottom: 10px;
+      padding-right: 15px;
+    }
+  }
 }
 .aboutInfoItem{
   height: 200px;
 }
 .aboutInnerItem{
   height: 95px;
+  @include pad(){
+    height: 200px;
+  }
   &:nth-child(1){
     margin-bottom: 10px;
   }
