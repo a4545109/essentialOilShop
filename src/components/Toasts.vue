@@ -12,10 +12,10 @@
     >
       <div class="toast-header">
         <div class="alertIcon" v-if="item.status === 'success'">
-          <img src="~@/../public/static/img/success.png" alt="">
+          <img src="~@/../public/static/img/success.png" alt="success">
         </div>
         <div class="alertIcon" v-else>
-          <img src="~@/../public/static/img/failure.png" alt="">
+          <img src="~@/../public/static/img/failure.png" alt="failure">
         </div>
         <strong class="mr-auto">{{ item.message }}</strong>
         <button

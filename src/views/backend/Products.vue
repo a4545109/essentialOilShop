@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="text-right">
-      <button class="btn btn-primary" @click.prevent="openModal('new')">建立新產品</button>
+      <button type="button" class="btn btn-primary" @click.prevent="openModal('new')">建立新產品</button>
     </div>
     <table class="table mt-4">
       <thead>
@@ -28,8 +28,8 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm" @click.prevent="openModal('edit',item)">編輯</button>
-              <button class="btn btn-outline-danger btn-sm" @click.prevent="openModal('delete',item)">刪除</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" @click.prevent="openModal('edit',item)">編輯</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" @click.prevent="openModal('delete',item)">刪除</button>
             </div>
           </td>
         </tr>

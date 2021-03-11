@@ -7,7 +7,7 @@
       <div class="row mb-5">
         <div class="col-md-6">
           <div class="productImg bg-cover"
-              :style="{ backgroundImage:`url(${product.imageUrl[0]})` }"></div>
+              :style="{ backgroundImage:`url(${product.imageUrl})` }"></div>
         </div>
         <div class="col-md-6">
           <h2 class="productTitle font-weight-bold mb-4">{{ product.title }}</h2>
@@ -26,7 +26,7 @@
                 <div class="form-group mt-3">
                     <label class="h5 font-weight-bold" for="number">數量</label>
                     <select class="form-control" id="number" v-model="product.num">
-                        <option value="0" disabled>請選擇數目</option>
+                        <option value="0">請選擇數目</option>
                         <option v-for="num in 10" :key="num" :value="num">
                             選購 {{ num }} {{ product.unit }}
                         </option>

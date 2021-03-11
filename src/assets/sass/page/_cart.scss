@@ -1,20 +1,21 @@
-@import '../component/grid';
 .delete{
   cursor:pointer;
-  @include mobile461(){
-    // width: 20px;
-  }
 }
 .cartNum{
   width: 150px;
-  @include mobile461(){
-    width: 200px;
-  }
+  // @include mobile461(){
+  //   width: 200px;
+  // }
+}
+.thumbnail img{
+  width: 30px; 
+  height: 30px; 
+  border-radius: 5px;
 }
 .thumbnail,
 .unit,
 .numberBox{
-  @include mobile461(){
+  @include mobile576(){
     display: none;
   }
 }

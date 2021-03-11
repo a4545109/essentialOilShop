@@ -1,50 +1,50 @@
 .guide{
   padding: 100px 0px;
-  .fuideItem{
-    position: relative;
-    border: 1px solid rgba(214, 214, 214, 0.432);
-    margin-bottom: 30px;
-    transition: 0.5s;
-    padding: 5px;
-    &:hover{
-      cursor: pointer;
-      transform:rotateY(180deg);
-      & .guideContent{
-        display: none;
-      }
+}
+.fuideItem{
+  position: relative;
+  border: 1px solid rgba(214, 214, 214, 0.432);
+  margin-bottom: 30px;
+  transition: 0.5s;
+  padding: 5px;
+  &:hover{
+    cursor: pointer;
+    transform:rotateY(180deg);
+    & .guideContent{
+      display: none;
     }
   }
-  .fuideCenterItem{
-    margin-bottom: 30px;
-    user-select: none;
-    padding: 100px 0px;
-    h2{
-      margin-bottom: 0;
-      font-size: 56px;
-    }
+}
+.fuideCenterItem{
+  margin-bottom: 30px;
+  user-select: none;
+  padding: 100px 0px;
+  h2{
+    margin-bottom: 0;
+    font-size: 56px;
   }
-  .fuideCenterImg{
-    width: 50px;
+}
+.fuideCenterImg{
+  width: 50px;
+}
+.fuideImg{
+  height: 300px;
+  @include pad-Pro(){
+    height: 240px;
+  }              
+}
+.guideContent{
+  width: 100%;
+  position: absolute;
+  font-size: 32px;
+  @include pad-Pro(){
+    font-size: 18px;
   }
-  .fuideImg{
-    height: 300px;
-    @include pad-Pro(){
-      height: 240px;
-    }              
-  }
-  .guideContent{
-    width: 100%;
-    position: absolute;
-    font-size: 32px;
-    @include pad-Pro(){
-      font-size: 18px;
-    }
-    top: 35%;
-    color: rgb(58, 57, 57);
-    padding-top: 16px;
-    background-color: rgba(255, 255, 255, 0.568);
-    &:hover{
-      text-decoration: none;
-    }
+  top: 35%;
+  color: rgb(58, 57, 57);
+  padding-top: 16px;
+  background-color: rgba(255, 255, 255, 0.568);
+  &:hover{
+    text-decoration: none;
   }
 }

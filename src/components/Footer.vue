@@ -7,7 +7,7 @@
         </div>
         <div class="row no-gutters m-4">
           <div class="col-md-6">
-            <ul class="message">
+            <ul class="footerMessage">
               <li>實體店面: 台南市放輕鬆二段777號 </li>
               <li class="mt-2 mb-2">課服專線: (06)-XXXXXXX</li>
               <li>營業時間: 8:00 ~ 17:00</li>
@@ -15,7 +15,7 @@
           </div>
           <div class="col-md-6">
             <div class="fans d-flex flex-row-reverse mt-4">
-              <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-2x" alt=""></i></a>
+              <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a>
               <a href="https://github.com/a4545109" target="_blank"><i class="fab fa-github-square fa-2x ml-2 mr-2"></i></a>
               <a href="https://line.me/ti/p/_yQb-gwVDr" target="_blank"><i class="fab fa-line fa-2x"></i></a>
             </div>

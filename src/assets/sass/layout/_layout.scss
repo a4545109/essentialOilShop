@@ -1,4 +1,3 @@
-@import '../component/grid';
 .body{
   font-family: 'Noto Sans TC', sans-serif;
 }
@@ -10,6 +9,9 @@
 }
 .sidebar li{
   margin-left: 40px;
+  @include pad-Pro(){
+    margin-left: 16px;
+  }
 }
 .tenderText{
   font-size: 36px;
@@ -17,22 +19,14 @@
   @include mobile576(){
     font-size: 28px;
   }
-}
-.message{
-  padding-left: 0px;
-  @include mobile376(){
-    font-size: 16px;
+  @include mobile461(){
+    font-size: 20px;
   }
+}
+.footerMessage{
+  padding-left: 0px;
 }
 .sign{
   font-size: 12px;
   margin: auto;
-}
-.thumbnail img{
-  width: 30px; 
-  height: 30px; 
-  border-radius: 5px;
-}
-.clearfix{
-  clear: both;
 }

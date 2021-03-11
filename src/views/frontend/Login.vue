@@ -26,10 +26,10 @@
                   <input id="inputPassword" v-model="user.password" type="password" class="form-control"
                       placeholder="Password" required>
                 </div>
-                <button class="btn btn-primary btn-block" type="submit">
+                <button type="submit" class="btn btn-primary btn-block">
                     登入
                 </button>
-                <button class="btn btn-outline-primary btn-block mb-5" type="button" @click="signout">
+                <button type="button" class="btn btn-outline-primary btn-block mb-5" @click="signout">
                     登出
                 </button>
               </form>

@@ -32,13 +32,13 @@
     <div class="container">
       <div class="row d-flex justify-content-center" v-if="carts.length > 0">
         <div class="col-md-10">
-          <div class="text-right m-3">
+          <div class="text-right mb-3">
             <button type="button" class="btn btn-outline-danger" @click="removeAllCarts">
                 刪除所有品項 <i class="far fa-trash-alt"></i>
             </button>
           </div>
           <!-- 清單 -->
-          <div class="table-responsive">
+          <div class="table-responsive" style="white-space :nowrap;">
             <table class="table">
                 <thead class="cartTableTitle text-center font-weight-bold table-borderless">
                   <th>刪除</th>

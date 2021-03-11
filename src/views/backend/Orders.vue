@@ -15,15 +15,13 @@
         <tr
           v-for="(item, key) in orders"
           :key="key"
-          :class="{'text-secondary': !item.is_paid}"
-        >
+          :class="{'text-secondary': !item.is_paid}">
           <td>{{ item.created.datetime }}</td>
           <td>
             <ul class="list-unstyled">
               <li
                 v-for="(product, i) in item.products"
-                :key="i"
-              >
+                :key="i">
                 {{ product.product.title }} × {{ product.quantity }}
                 {{ product.product.unit }}
               </li>
@@ -42,20 +40,16 @@
                 v-model="item.paid"
                 type="checkbox"
                 class="custom-control-input"
-                @change="setOrderPaid(item)"
-              >
+                @change="setOrderPaid(item)">
               <label
                 class="custom-control-label"
-                :for="item.id"
-              >
+                :for="item.id">
                 <strong
                   v-if="item.paid"
-                  class="text-success"
-                >已付款</strong>
+                  class="text-success">已付款</strong>
                 <span
                   v-else
-                  class="text-muted"
-                >尚未付款</span>
+                  class="text-muted">尚未付款</span>
               </label>
             </div>
           </td>

@@ -6,8 +6,7 @@
       <button
         type="button"
         class="btn btn-primary"
-        @click.prevent="openCouponModal('new')"
-      >
+        @click.prevent="openCouponModal('new')">
         建立新的優惠券
       </button>
     </div>
@@ -24,35 +23,30 @@
       <tbody>
         <tr
           v-for="(item, key) in coupons"
-          :key="key"
-        >
+          :key="key">
           <td>{{ item.title }}</td>
           <td>{{ item.percent }}</td>
           <td>{{ item.deadline.datetime }}</td>
           <td>
             <span
               v-if="item.enabled"
-              class="text-success"
-            >啟用</span>
+              class="text-success">啟用</span>
             <span
               v-else
-              class="text-muted"
-            >未起用</span>
+              class="text-muted">未起用</span>
           </td>
           <td>
             <div class="btn-group">
               <button
                 type="button"
                 class="btn btn-outline-primary btn-sm"
-                @click.prevent="openCouponModal('edit', item)"
-              >
+                @click.prevent="openCouponModal('edit', item)">
                 編輯
               </button>
               <button
                 type="button"
                 class="btn btn-outline-danger btn-sm"
-                @click.prevent="openCouponModal('delete', item)"
-              >
+                @click.prevent="openCouponModal('delete', item)">
                 刪除
               </button>
             </div>
@@ -73,27 +67,50 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="title">標題</label>
-              <input id="title" v-model="tempCoupon.title" type="text" class="form-control" placeholder="請輸入標題">
+              <input id="title"
+                type="text"
+                class="form-control"
+                placeholder="請輸入標題"
+                v-model="tempCoupon.title">
             </div>
             <div class="form-group">
               <label for="coupon_code">優惠碼</label>
-              <input id="coupon_code" v-model="tempCoupon.code" type="text" class="form-control" placeholder="請輸入優惠碼" >
+              <input id="coupon_code"
+                type="text"
+                class="form-control"
+                placeholder="請輸入優惠碼"
+                v-model="tempCoupon.code">
             </div>
             <div class="form-group">
               <label for="due_date">到期日</label>
-              <input id="due_date" v-model="due_date" type="date" class="form-control" >
+              <input id="due_date"
+                type="date"
+                class="form-control"
+                v-model="due_date">
             </div>
             <div class="form-group">
               <label for="due_time">到期時間</label>
-              <input id="due_time" v-model="due_time" type="time" step="1" class="form-control" >
+              <input id="due_time"
+                type="time" step="1"
+                class="form-control"
+                v-model="due_time">
             </div>
             <div class="form-group">
               <label for="price">折扣百分比</label>
-              <input id="price" v-model="tempCoupon.percent" type="number" class="form-control" placeholder="請輸入折扣數量" >
+              <input id="price"
+                type="number"
+                class="form-control"
+                placeholder="請輸入折扣數量"
+                v-model="tempCoupon.percent">
             </div>
             <div class="form-group">
               <div class="form-check">
-                <input id="enabled" v-model="tempCoupon.enabled" class="form-check-input" type="checkbox" :true-value="1" :false-value="0" >
+                <input id="enabled"
+                  class="form-check-input"
+                  type="checkbox"
+                  :true-value="1"
+                  :false-value="0"
+                  v-model="tempCoupon.enabled">
                 <label class="form-check-label" for="enabled" >是否啟用</label>
               </div>
             </div>

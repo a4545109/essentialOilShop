@@ -32,7 +32,7 @@
             <div class="col-12 d-none d-md-block">
               <div class="fuideCenterItem d-flex align-items-center justify-content-center">
                 <img class="fuideCenterImg" src="../../../public/static/img/compass.png" alt="">
-                <h2 class="text-center font-weight-bolder">健康指南</h2>
+                <h2 class="text-center font-weight-bolder">使用指南</h2>
               </div>
             </div>
             <div class="col-12">

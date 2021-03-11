@@ -9,19 +9,17 @@
       </thead>
       <tbody v-if="storages.length">
         <tr
-        v-for="(item, key) in storages"
-        :key="key"
-        >
+          v-for="(item, key) in storages"
+          :key="key">
         <td>
           <img
           :src="item.path"
           width="100px"
-          class="img-fluid"
-          >
+          class="img-fluid">
         </td>
         <td>
           <div class="btn-group btn-group-sm">
-          <button class="btn btn-outline-danger"  @click.prevent="openDeleteModal(item)">刪除</button>
+          <button type="button" class="btn btn-outline-danger"  @click.prevent="openDeleteModal(item)">刪除</button>
           </div>
         </td>
         </tr>

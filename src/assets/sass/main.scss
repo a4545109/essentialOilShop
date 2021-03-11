@@ -3,8 +3,9 @@
 @import '~bootstrap/scss/mixins'; // 官方的
 @import '~bootstrap';
 
-@import 'component/utilities';
 @import 'component/grid';
+@import 'component/utilities';
+@import 'component/setp';
 
 @import "page/products";
 @import "page/product";

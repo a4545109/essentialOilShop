@@ -5,7 +5,7 @@
       <div class="container">
         <a class="navbar-brand d-md-block d-none" href="index.html">
           <div class="sidebarLogo d-flex align-items-center">
-            <img class="navbarIcon" src="../../public/static/img/clover.png" style="width: 40px;" alt="">
+            <img class="navbarIcon" src="../../public/static/img/clover.png" style="width: 40px;" alt="logo">
             <h1>芳草小舖</h1>
           </div>
         </a>
@@ -16,7 +16,7 @@
         <router-link to="/">
           <a class="logo navbar-brand d-flex align-items-center d-md-none d-block">
             <div class="sidebarLogo d-flex align-items-center">
-              <img class="navbarIcon" src="../../public/static/img/clover.png" style="width: 35px;" alt="">
+              <img class="navbarIcon" src="../../public/static/img/clover.png" style="width: 35px;" alt="logo">
               <h1>芳草小舖</h1>
             </div>
           </a>
@@ -52,7 +52,7 @@
               <router-link class="routerLink" to="/guide">
                 <a class="nav-link">
                   <i class="fas fa-book mr-1"></i>
-                  <span>健康指南</span>
+                  <span>使用指南</span>
                 </a>
               </router-link>
             </li>

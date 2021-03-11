@@ -188,13 +188,15 @@ export default {
     }
   },
   created () {
+    this.getProducts()
+  },
+  mounted () {
     $(document).ready(function () {
       $('a').click(function (e) {
         $(this).addClass('active')
         $(this).siblings('a').removeClass('active')
       })
     })
-    this.getProducts()
   }
 }
 </script>

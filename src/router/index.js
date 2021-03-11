@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/frontend/Shop.vue'
+import Shop from '../views/frontend/Shop.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/', // 外圍的版
-    name: 'Home',
-    component: Home,
+    name: 'Shop',
+    component: Shop,
     children: [
       {
         path: '', // 首頁
@@ -79,6 +79,10 @@ const routes = [
         component: () => import('../views/backend/Cart_Checkout.vue')
       }
     ]
+  },
+  {
+    path: '*',
+    redirect: '/'
   }
 ]
 

@@ -57,8 +57,7 @@
                   type="button"
                   class="btn btn-outline-primary"
                   :disabled="item.paid"
-                  @click.prevent="getDetailed(item.id)"
-                >
+                  @click.prevent="getDetailed(item.id)">
                   選擇
                 </button>
               </div>

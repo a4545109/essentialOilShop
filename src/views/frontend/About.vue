@@ -33,7 +33,7 @@
 <script>
 import AOS from 'aos'
 export default {
-  name: 'about',
+  name: 'About',
   created () {
     AOS.init()
   }

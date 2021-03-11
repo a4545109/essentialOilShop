@@ -17,8 +17,7 @@
           <tr
             v-for="(item, key) in orders"
             :key="key"
-            :class="{'text-secondary': !item.is_paid}"
-          >
+            :class="{'text-secondary': !item.is_paid}">
             <td>{{ item.created.datetime }}</td>
             <td>
               {{ item.payment }}
@@ -27,8 +26,7 @@
               <ul class="list-unstyled">
                 <li
                   v-for="(product, i) in item.products"
-                  :key="i"
-                >
+                  :key="i">
                   {{ product.product.title }} 數量：{{ product.quantity }}
                   {{ product.product.unit }}
                 </li>
@@ -40,14 +38,12 @@
             <td>
               <strong
                 v-if="item.paid"
-                class="text-success"
-              >
+                class="text-success">
                 已付款
               </strong>
               <span
                 v-else
-                class="text-muted"
-              >
+                class="text-muted">
                 未付款
               </span>
             </td>
@@ -57,8 +53,7 @@
                   type="button"
                   class="btn btn-outline-primary"
                   :disabled="item.paid"
-                  @click.prevent="getDetailed(item.id)"
-                >
+                  @click.prevent="getDetailed(item.id)">
                   選擇
                 </button>
               </div>
@@ -71,8 +66,7 @@
 
     <form
       class="col-md-6 mb-5"
-      @submit.prevent="payOrder"
-    >
+      @submit.prevent="payOrder">
       <table class="table">
         <thead>
           <th>品名</th>
@@ -82,8 +76,7 @@
         <tbody>
           <tr
             v-for="(item, key) in order.products"
-            :key="key"
-          >
+            :key="key">
             <td class="align-middle">
               {{ item.product.title }}
             </td>
@@ -99,8 +92,7 @@
           <tr>
             <td
               colspan="2"
-              class="text-right"
-            >
+              class="text-right">
               總計
             </td>
             <td class="text-right">
@@ -144,8 +136,7 @@
       </table>
       <div
         v-if="order.paid === false"
-        class="text-right"
-      >
+        class="text-right">
         <button type="button" class="btn btn-danger">
           確認付款去
         </button>
