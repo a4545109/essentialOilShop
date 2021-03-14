@@ -1,7 +1,20 @@
 <template>
   <div>
     <!-- loading 套件 -->
-    <loading :active.sync="isLoading"></loading>
+    <loading :active.sync="isLoading">
+      <div class="loadingio-spinner-spin-qrb6a58hvd">
+        <div class="ldio-wx1melsq2ad">
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+          <div><div></div></div>
+        </div>
+      </div>
+    </loading>
     <!-- banner -->
     <div class="container">
         <div class="p-banner-img bg-cover"></div>

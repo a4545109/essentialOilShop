@@ -8,6 +8,18 @@
   right: 5%;
   top: 20%;
 }
+.homeSubtitle{
+  font-size: 56px;
+  @include pad-Pro(){
+    font-size: 48px;
+  }
+  @include mobile461(){
+    font-size: 36px;
+  }
+  @include mobile376(){
+    font-size: 30px;
+  }
+}
 .cardImg{
   height: 200px;
   position: relative;
@@ -45,6 +57,9 @@
   width: 80px;
   height: 80px;
   border-radius: 100%;
+}
+.customerImg{
+  height: 400px;
 }
 .customerName{
   font-size: 18px;

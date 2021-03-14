@@ -45,5 +45,8 @@ Vue.use(VeeValidate, {
 new Vue({
   i18n,
   router,
-  render: h => h(App)
+  render: h => h(App),
+  created () {
+    AOS.init()
+  }
 }).$mount('#app')

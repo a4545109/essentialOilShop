@@ -1,7 +1,7 @@
 <template>
   <div>
     <div is="swiper" ref="mySwiper" class="sale_content swiper-container" :options="swiperOption">
-      <div class="swiper-slide" is="swiper-slide" v-for="product in products" :key="'product' + product.id">
+      <div class="swiperProducts swiper-slide" is="swiper-slide" v-for="product in products" :key="'product' + product.id">
         <div class="productsPic d-flex justify-content-center align-items-center bg-cover" :style="{ backgroundImage:`url(${product.img[0]})` }">
           <router-link class="routerLink" :to="`/product/${product.id}`" target="_blank">
             <div class="SeeMore">
@@ -9,7 +9,7 @@
             </div>
           </router-link>
         </div>
-        <div class="productsName mt-3">
+        <div class="productsName my-3">
           <div class="h4 text-center">{{ product.title }}</div>
         </div>
       </div>
